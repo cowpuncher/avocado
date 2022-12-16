@@ -1,0 +1,75 @@
+/* Спецификация */
+:root {
+    --color-0: #E3FE75;
+    --color-1: #333333;
+
+    --fontfamily-main: 'Manrope', sans-serif;
+
+    --fontsize-main: 17px;
+    
+    --radius-1: 3px;
+}
+
+html,body,div,p,a,span,ul,ol,li,main,header,footer,section {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: var( --fontfamily-main);
+    color: var( --color-1);
+    font-size: 17px;
+}
+ul,ol,li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: var( --color-1);
+}
+/* Стили шаблона */
+.d-flex {
+    display: flex;
+}
+.jcsb {
+    justify-content: space-between;
+}
+.aic {
+    align-items: center;
+}
+.jcc {
+    justify-content: center;
+}
+.jcsa {
+    justify-content: space-around;
+}
+.aifs {
+    align-items: flex-start;
+}
+.aife {
+    align-items: flex-end;
+}
+.fdc {
+    flex-direction: column;
+}
+.fdr {
+    flex-direction: row;
+}
+
+/* Основные стили */
+.main_wrapper {
+    display: flex;
+}
+.header {
+    max-width: 316px;
+    width: 100%;
+    flex: 1;
+    height: 100vh;
+    background: var( --color-0);
+}
+.body_page {
+    flex: 1;
+}
+.body_page_top {
+    width: 100%;
+}
