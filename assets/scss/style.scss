@@ -1,0 +1,304 @@
+@charset "UTF-8";
+
+@mixin for-flex-just-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@mixin for-flex-just-between-start {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+@mixin for-flex-center {
+    display: flex;
+    align-items: center;
+}
+@mixin for-flex-start {
+    display: flex;
+    align-items: flex-start;
+}
+@mixin for-flex-just-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin for-flex-just-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin for-flex-column-start {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+/* ANCHOR Спецификация */
+:root {
+  --color-0: #E3FE75;
+  --color-1: #333333;
+  --color-2: #FAFDE8;
+  --color-3: #F8F9FA;
+  --color-4: #8FCC00;
+  --color-5: #E6EAEE;
+
+  --fontfamily-main: "Manrope", sans-serif;
+
+  --fontsize-main: 17px;
+
+  --radius-1: 12px;
+  --radius-2: 10px;
+}
+
+html, body, div, p, a, span, ul, ol, li, main, header, footer, section, h1, h2, h3, h4, h5, h6 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fontfamily-main);
+  color: var(--color-1);
+  font-size: 17px;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-1);
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 45px;
+}
+/*ANCHOR  Флексы шаблона */
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.jcsb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.aic {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.jcc {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.jcsa {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.aifs {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.aife {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.fdc {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.fdr {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+/*ANCHOR  Основные стили */
+.main_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*ANCHOR  Элементы и стили */
+.contacts {
+    &_link {
+        padding: 0 0 0 15px;
+        @include for-flex-center;
+        img {
+            margin-right: 10px;
+        }
+    }
+}
+.breadcrumbs {
+    span {
+        margin: 0 6px;
+    }
+}
+.btn {
+    background: transparent;
+    border: 0;
+    outline: none;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 10px;
+    border: 1px solid var(--color-4);
+    border-radius: var(--radius-2);
+    margin-top: 10px;
+    cursor: pointer;
+
+    &_light {
+        font-size: 15px;
+        &:hover {
+            background: var(--color-2)
+        }
+    }
+}
+/* ANCHOR Сайдбар он же header */
+.header {
+    @include for-flex-column-start;
+    max-width: 316px;
+    width: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 100vh;
+    background: var(--color-0);
+    padding: 32px 15px 50px 25px;
+    &_top {      
+        padding: 0 0 25px 15px;
+        border-bottom: 1px solid rgb(51 51 51 / 16%);   
+        margin-bottom: 40px;
+        width: 100%;
+        &_nav {               
+            display: none;
+        }
+    }
+    &_nav {   
+        li {
+            margin-bottom: 12px;
+            &.active,
+            &:hover {
+                a {
+                    background: #fff;
+                }
+            }
+            a {
+                @include for-flex-center;
+                padding: 16px 15px;
+                border-radius: var(--radius-1);                
+                font: {
+                    size: 17px;
+                    weight: 400;
+                }
+                img {
+                    margin-right: 10px;
+                }
+            }
+        }          
+    }
+    .contacts {
+        @include for-flex-column-start;
+        margin-top: auto;
+        width: 100%;
+        &_link {
+            padding: 16px 15px;
+            width: 100%;
+            border-radius: 12px;
+            &:not(:first-child) {
+                margin-top: 2px;
+            }
+            &:hover {    
+                background: rgb(255 255 255 / 32%);
+            }
+        }
+    }
+}
+.body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+        flex: 1;
+    padding: 35px 40px 25px 28px;
+    // ANCHOR Топ в теле страницы
+    &_top {
+        @include for-flex-just-between-start;
+        width: 100%;
+        margin-bottom: 21px;
+        &_title {
+            margin-top: 5px;
+        }
+        &_nav {
+            @include for-flex-center;
+            margin-top: 8px;
+            a {
+                @include for-flex-just-center;
+                background: var(--color-2);
+                height: 48px;
+                min-width: 48px;
+                border-radius: var(--radius-1);
+                padding: 0 12px;
+                &.cabinet {
+                    margin-left: 5px;
+                    position: relative;
+                    .name {
+                        font-weight: 600;
+                        font-size: 15px;
+                        line-height: 20px;
+                        color: #595959;
+                        padding: 0 30px 0 13px;
+                    }
+                    .arrow {
+                        position: absolute;
+                        top: 9px;
+                        right: 11px;
+                    }
+                }
+            }
+        }
+    }
+    // ANCHOR Карточки создания счета и бизнеса
+    &_nav {
+        @include for-flex-start;
+        &_item {
+            @include for-flex-start;
+            padding: 11px 20px 11px 11px;
+            border-radius: var(--radius-1);
+            border: 1px solid var(--color-5);
+            font-weight: 600;    
+            &:not(:last-child) {
+                margin-right: 23px;
+            }
+            &__icon {
+                @include for-flex-just-center;
+                height: 50px;
+                width: 50px;
+                border-radius: var(--radius-1);
+                background: var(--color-3);
+                margin-right: 10px;
+            }
+            &__info {
+                @include for-flex-column-start;
+            }
+        }
+    }
+}
