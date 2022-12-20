@@ -372,6 +372,9 @@ label input {
 .table_app .td:nth-child(9) {
   width: 85px;
 }
+.table_pagi {
+  margin-top: auto;
+}
 
 /* ANCHOR Сайдбар он же header */
 .header {
