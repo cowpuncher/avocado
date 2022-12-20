@@ -7,13 +7,24 @@
   --color-3: #F8F9FA;
   --color-4: #8FCC00;
   --color-5: #E6EAEE;
+  --color-6: #2A2A2A;
+  --color-7: #F3F5F7;
+  --color-8: #858585;
+  --color-9: #22BB62;
+  --color-10:#FF9E0D;
+  --color-11:#FB5353;
+  --color-12: #ECF9F1;
+  --color-13:#FFF5E5;
+  --color-14:#FFE5EA;
   --fontfamily-main: "Manrope", sans-serif;
   --fontsize-main: 17px;
   --radius-1: 12px;
   --radius-2: 10px;
+  --radius-3: 8px;
+  --radius-4: 6px;
 }
 
-html, body, div, p, a, span, ul, ol, li, main, header, footer, section, h1, h2, h3, h4, h5, h6 {
+html, body, div, p, a, span, ul, ol, li, main, header, footer, section, h1, h2, h3, h4, h5, h6, input, textarea, button, form, section, main, header, footer {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
@@ -105,6 +116,7 @@ h1 {
 }
 
 /*ANCHOR  Элементы и стили */
+/*ANCHOR -- Контактов*/
 .contacts_link {
   padding: 0 0 0 15px;
   display: -webkit-box;
@@ -118,10 +130,12 @@ h1 {
   margin-right: 10px;
 }
 
+/*ANCHOR -- Хлебных крошек*/
 .breadcrumbs span {
   margin: 0 6px;
 }
 
+/*ANCHOR -- Кнопок*/
 .btn {
   background: transparent;
   border: 0;
@@ -139,6 +153,224 @@ h1 {
 }
 .btn_light:hover {
   background: var(--color-2);
+}
+
+/*ANCHOR -- Форм*/
+label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 42px;
+  border-radius: var(--radius-1);
+  border: 1px solid var(--color-5);
+}
+label input {
+  font-weight: 500;
+  outline: none;
+  border: 1px solid transparent;
+  width: 100%;
+}
+
+/*ANCHOR  Компонентные блоки */
+/*ANCHOR -- Фильтры*/
+.filter {
+  margin-bottom: 17px;
+}
+.filter_title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 16px;
+}
+.filter_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.filter_form .label {
+  position: relative;
+  max-width: 238px;
+  margin-right: 15px;
+}
+.filter_form .label .input {
+  font-size: 17px;
+  padding-left: 43px;
+  padding-top: 3px;
+}
+.filter_form .label.search::before {
+  content: "";
+  background: url(../img/icons/search.svg) no-repeat 50% 50%/contain;
+  display: block;
+  height: 21px;
+  width: 21px;
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  -webkit-transform: translate(0, 50%);
+          transform: translate(0, 50%);
+}
+
+/*ANCHOR -- Таблица*/
+.table {
+  min-width: 1535px;
+}
+.table_section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.table_head .tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: var(--color-2);
+  border-radius: var(--radius-1);
+  padding: 16px;
+  font-size: var(--fontsize-main);
+  font-weight: 600;
+  color: var(--color-1);
+}
+.table_body .tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 16px;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--color-6);
+}
+.table_body .tr .td {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.table_body .tr .td.nobody {
+  padding: 8px;
+  border-radius: var(--radius-3);
+  text-align: center;
+  background: var(--color-3);
+  width: 100%;
+}
+.table_body .tr .td span {
+  display: inline-block;
+  padding: 0 10px;
+  height: 28px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.table_body .tr .td span.bank {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: var(--radius-4);
+  background: var(--color-7);
+}
+.table_body .tr .td span.bank img {
+  margin-right: 3px;
+}
+.table_body .tr .td span.bet {
+  font-size: 15px;
+  padding: 0;
+}
+.table_body .tr .td span.info {
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-8);
+}
+.table_body .tr .td span.status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: var(--radius-4);
+}
+.table_body .tr .td span.status.open {
+  background: var(--color-12);
+  color: var(--color-9);
+}
+.table_body .tr .td span.status.wait {
+  background: var(--color-13);
+  color: var(--color-10);
+}
+.table_body .tr .td span.status.reject {
+  background: var(--color-14);
+  color: var(--color-11);
+}
+.table_body .tr .td span:not(:last-child) {
+  margin-bottom: 5px;
+}
+.table_body .tr:not(:last-child) {
+  border-bottom: 1px solid var(--color-5);
+}
+.table_app .td:nth-child(1) {
+  width: 160px;
+}
+.table_app .td:nth-child(2) {
+  width: 180px;
+}
+.table_app .td:nth-child(3) {
+  width: 150px;
+}
+.table_app .td:nth-child(4) {
+  width: 180px;
+}
+.table_app .td:nth-child(5) {
+  width: 200px;
+}
+.table_app .td:nth-child(6) {
+  width: 180px;
+}
+.table_app .td:nth-child(7) {
+  width: 190px;
+}
+.table_app .td:nth-child(8) {
+  width: 173px;
+}
+.table_app .td:nth-child(9) {
+  width: 85px;
 }
 
 /* ANCHOR Сайдбар он же header */
@@ -219,6 +451,16 @@ h1 {
 }
 
 .body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -288,6 +530,7 @@ h1 {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin-bottom: 37px;
 }
 .body_nav_item {
   display: -webkit-box;

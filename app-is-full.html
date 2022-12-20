@@ -1,0 +1,229 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/fonts.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Avocado</title>
+ </head>
+ <body>
+    <div class="main_wrapper">
+        <!-- Правый сайдбар начало -->
+        <header class="header">
+            <div class="header_top">
+                <a href="/" class="logo">
+                    <img src="./assets/img/icons/logo.svg" alt="logo">
+                </a>
+                <div class="header_top_nav">
+                    <a href="#" class="header_top_nav__btn">
+                        <img src="./assets/img/icons/notification-alarm.svg" alt="notification">
+                    </a>
+                    <a href="#" class="header_top_nav__btn">
+                        <img src="./assets/img/icons/burger.svg" alt="burger">
+                    </a>
+                </div>
+            </div>
+            <nav class="header_nav">
+                <ul class="menu">
+                    <li class="active"><a href="#"><img src="./assets/img/icons/menu-1.svg" alt="icons">Заявки</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-2.svg" alt="icons">Статистика</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-3.svg" alt="icons">Сотрудники</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-4.svg" alt="icons">Реферальные программы</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-5.svg" alt="icons">Документы</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-6.svg" alt="icons">F.A.Q</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-7.svg" alt="icons">Администрирование</a></li>
+                </ul>
+            </nav>
+            <div class="contacts">
+                <a href="mailto:mail@mail.ru" class="contacts_link">
+                    <img src="./assets/img/icons/message-question.svg" alt="message">support24@avocado.ru
+                </a>
+                <a href="tel:79112223344" class="contacts_link">
+                    <img src="./assets/img/icons/call.svg" alt="call">+7 (954) 525-40-22
+                </a>
+            </div>
+        </header>
+        <!-- Правый сайдбар конец -->
+        <!-- Тело кабинета начало -->
+        <main class="body">
+            <!-- Шапка с заголовком и крошками начало -->
+            <section class="body_top">
+                <div class="body_top_about">
+                    <div class="breadcrumbs">
+                        <a href="#">Главная</a>
+                        <span> / </span>
+                        <a href="#">Личный кабинет</a>
+                    </div>
+                    <h1 class="body_top_title">
+                        Заявки
+                    </h1>
+                </div>
+                <div class="body_top_nav">
+                    <a href="#" class="notif">
+                        <img src="./assets/img/icons/notification-alarm.svg" alt="notification">
+                    </a>
+                    <a href="#" class="cabinet">
+                        <div class="avatar"><img src="./assets/img/ava.jpg" alt="ava"></div>
+                        <span class="name">Мария М.</span>
+                        <span class="arrow">
+                            <img src="./assets/img/icons/arrow-down.svg" alt="arrow">
+                        </span>
+                    </a>
+                </div>
+            </section>
+            <!-- Шапка с заголовком и крошками конец -->
+            <section class="body_nav">
+                <div class="body_nav_item">
+                    <div class="body_nav_item__icon">
+                        <img src="./assets/img/icons/moneys.svg" alt="moneys">
+                    </div>
+                    <div class="body_nav_item__info">
+                        <span class="title">
+                            Расчетный счёт для бизнеса
+                        </span>
+                        <button class="btn btn_light">
+                            Открыть
+                        </button>
+                    </div>
+                </div>
+                <div class="body_nav_item">
+                    <div class="body_nav_item__icon">
+                        <img src="./assets/img/icons/personalcard.svg" alt="personalcard">
+                    </div>
+                    <div class="body_nav_item__info">
+                        <span class="title">
+                            Регистрация бизнеса ООО или ИП
+                        </span>
+                        <button class="btn btn_light">
+                            Зарегистрировать
+                        </button>
+                    </div>
+                </div>
+            </section>      
+            <!-- Форма с фильтрами начало -->      
+            <section class="filter">                
+                <div class="filter_title">
+                    Список заявок
+                </div>
+                <form action="/" class="filter_form">
+                    <label class="label search">
+                        <input type="text" class="input" name="name" placeholder="Поиск по ФИО">
+                    </label>
+                </form>
+            </section>
+            <!-- Форма с фильтрами конец --> 
+            <!-- 
+                В таблице заявки добавляется класс  
+                table_app так как тут явно больше столбцов. 
+                Резиново их не сделать поэтому добавил доп класс чтобы
+                можно было перезадать ширину столбцов
+            -->  
+            <section class="table_section">
+                <div class="table table_app">
+                    <div class="table_head">
+                        <div class="tr">
+                            <div class="td">ID, тип</div>
+                            <div class="td">Автор</div>
+                            <div class="td">Дата заявки</div>
+                            <div class="td">Дата сделки</div>
+                            <div class="td">Компания</div>
+                            <div class="td">ИНН</div>
+                            <div class="td">Банк</div>
+                            <div class="td">Статус</div>
+                            <div class="td">Ставка</div>
+                        </div>
+                    </div>
+                    <div class="table_body">
+                        <div class="tr">
+                            <div class="td">320028 <span class="info">Открытие бизнеса</span></div>
+                            <div class="td">Евгений Перепелкин</div>
+                            <div class="td">16.11.2022</div>
+                            <div class="td">19.11.2022</div>
+                            <div class="td">ИП Машаков И.Г.</div>
+                            <div class="td">243904213224</div>
+                            <div class="td">
+                                <span class="bank"><img src="./assets/img/icons/bank1.svg" alt=""> Открытие</span>
+                                <span class="bank"><img src="./assets/img/icons/bank2.svg" alt=""> Тинькофф</span>
+                            </div>
+                            <div class="td">
+                                <span class="status open">Открыт</span>
+                                <span class="status open">Открыт</span>
+                            </div>
+                            <div class="td">
+                                <span class="bet">2500 ₽</span>
+                                <span class="bet">2500 ₽</span>
+                            </div>
+                        </div>
+                        <div class="tr">
+                            <div class="td">320027 <span class="info">Открытие бизнеса</span></div>
+                            <div class="td">Михаил Букарев</div>
+                            <div class="td">15.11.2022</div>
+                            <div class="td">17.11.2022</div>
+                            <div class="td">ИП Букарев М.Б.</div>
+                            <div class="td">770203362786</div>
+                            <div class="td">
+                                <span class="bank"><img src="./assets/img/icons/bank3.svg" alt=""> Альфа Банк</span>
+                                <span class="bank"><img src="./assets/img/icons/bank4.svg" alt=""> Модульбанк</span>
+                            </div>
+                            <div class="td">
+                                <span class="status wait">В обработке</span>
+                                <span class="status reject">Отказ</span>
+                            </div>
+                            <div class="td">
+                                <span class="bet">2500 ₽</span>
+                                <span class="bet">0</span>
+                            </div>
+                        </div>
+                        <div class="tr">
+                            <div class="td">320020 <span class="info">Открытие бизнеса</span></div>
+                            <div class="td">Мария Иванова</div>
+                            <div class="td">14.11.2022</div>
+                            <div class="td">16.11.2022</div>
+                            <div class="td">ИП Иванова М.Ю.</div>
+                            <div class="td">772909013156</div>
+                            <div class="td">
+                                <span class="bank"><img src="./assets/img/icons/bank3.svg" alt=""> Альфа Банк</span>
+                                <span class="bank"><img src="./assets/img/icons/bank4.svg" alt=""> Модульбанк</span>
+                                <span class="bank"><img src="./assets/img/icons/bank5.svg" alt=""> Уралсиб</span>
+                                <span class="bank"><img src="./assets/img/icons/bank2.svg" alt=""> Тинькофф</span>
+                                <span class="bank"><img src="./assets/img/icons/bank1.svg" alt=""> Открытие</span>
+                            </div>
+                            <div class="td">
+                                <span class="status wait">В обработке</span>
+                                <span class="status wait">В обработке</span>
+                                <span class="status reject">Отказ</span>
+                                <span class="status open">Открыт</span>
+                                <span class="status open">Открыт</span>
+                            </div>
+                            <div class="td">
+                                <span class="bet">2500 ₽</span>
+                                <span class="bet">2500 ₽</span>
+                                <span class="bet">0</span>
+                                <span class="bet">2500 ₽</span>
+                                <span class="bet">2500 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+                <div class="table_pagi">
+                    <div class="table_pagi_counter">
+                        3 из 200 заявок
+                    </div>
+                    <div class="table_pagi_links">
+    
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Тело кабинета конец -->
+        
+        <!-- Подвал начиная с планшета начало -->
+        <footer class="footer">
+
+        </footer>        
+        <!-- Подвал начиная с планшета начало -->
+    </div>
+ </body>
+ </html>

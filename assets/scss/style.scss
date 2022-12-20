@@ -14,12 +14,21 @@
     display: flex;
     align-items: center;
 }
+@mixin for-flex-inline-center {
+    display: inline-flex;
+    align-items: center;
+}
 @mixin for-flex-start {
     display: flex;
     align-items: flex-start;
 }
 @mixin for-flex-just-center {
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin for-flex-inline-just-center {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 }
@@ -42,6 +51,15 @@
   --color-3: #F8F9FA;
   --color-4: #8FCC00;
   --color-5: #E6EAEE;
+  --color-6: #2A2A2A;
+  --color-7: #F3F5F7;
+  --color-8: #858585;
+  --color-9: #22BB62;
+  --color-10:#FF9E0D;
+  --color-11:#FB5353;
+  --color-12: #ECF9F1;
+  --color-13:#FFF5E5;
+  --color-14:#FFE5EA;
 
   --fontfamily-main: "Manrope", sans-serif;
 
@@ -49,9 +67,11 @@
 
   --radius-1: 12px;
   --radius-2: 10px;
+  --radius-3: 8px;
+  --radius-4: 6px;
 }
 
-html, body, div, p, a, span, ul, ol, li, main, header, footer, section, h1, h2, h3, h4, h5, h6 {
+html, body, div, p, a, span, ul, ol, li, main, header, footer, section, h1, h2, h3, h4, h5, h6, input, textarea, button, form, section, main, header, footer {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
@@ -141,6 +161,7 @@ h1 {
   display: flex;
 }
 /*ANCHOR  Элементы и стили */
+/*ANCHOR -- Контактов*/
 .contacts {
     &_link {
         padding: 0 0 0 15px;
@@ -150,11 +171,13 @@ h1 {
         }
     }
 }
+/*ANCHOR -- Хлебных крошек*/
 .breadcrumbs {
     span {
         margin: 0 6px;
     }
 }
+/*ANCHOR -- Кнопок*/
 .btn {
     background: transparent;
     border: 0;
@@ -170,7 +193,172 @@ h1 {
     &_light {
         font-size: 15px;
         &:hover {
-            background: var(--color-2)
+            background: var(--color-2);
+        }
+    }
+}
+/*ANCHOR -- Форм*/
+label {
+    @include for-flex-just-center;
+    height: 42px;
+    border-radius: var(--radius-1);
+    border: 1px solid var(--color-5);
+    input {
+        font-weight: 500;
+        outline: none;
+        border: 1px solid transparent;
+        width: 100%;
+    }
+}
+/*ANCHOR  Компонентные блоки */
+/*ANCHOR -- Фильтры*/
+.filter {
+    margin-bottom: 17px;
+    &_title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 16px;
+    }
+    &_form {
+        @include for-flex-start;
+        .label {
+            position: relative;  
+            max-width: 238px;
+            margin-right: 15px;
+            .input {
+                font-size: 17px;
+                padding-left: 43px;     
+                padding-top: 3px;     
+            }
+            &.search::before {
+                content: '';
+                background: url(../img/icons/search.svg) no-repeat 50% 50% / contain;
+                display: block;
+                height: 21px;
+                width: 21px;
+                position: absolute;
+                left: 10px;
+                top: 0;
+                bottom: 0;
+                transform: translate(0, 50%);
+            }
+        }
+    }
+}
+/*ANCHOR -- Таблица*/
+.table {
+    min-width: 1535px;
+
+    &_section {
+        @include for-flex-column-start;
+        flex: 1;
+    }
+    &_head {
+        .tr {        
+            @include for-flex-center;
+            background: var(--color-2);
+            border-radius: var(--radius-1);
+            padding: 16px;
+            font-size: var(--fontsize-main);
+            font-weight: 600;
+            color: var(--color-1);
+        }
+    }
+    &_body {
+        .tr {
+            @include for-flex-start;
+            padding: 16px;
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--color-6);
+            .td {
+                @include for-flex-column-start;
+                &.nobody {
+                    padding: 8px;
+                    border-radius: var(--radius-3);
+                    text-align: center;
+                    background: var(--color-3);
+                    width: 100%;
+                }
+                span {
+                    display: inline-block;
+                    padding: 0 10px;
+                    height: 28px;
+                    font-size: 13px;
+                    font-weight: 600;
+                    &.bank {
+                        @include for-flex-inline-center;
+                        border-radius: var(--radius-4);
+                        background: var(--color-7);
+                        img {
+                            margin-right: 3px;
+                        }
+                    }
+                    &.bet {
+                        font-size: 15px;
+                        padding: 0;
+                    }
+                    &.info {
+                        padding: 0;
+                        margin: 0;
+                        font-size: 15px;
+                        font-weight: 500;
+                        color: var(--color-8);
+                    }
+                    &.status {
+                        @include for-flex-just-center;
+                        border-radius: var(--radius-4);
+                        &.open {
+                            background: var(--color-12);
+                            color: var(--color-9);
+                        }
+                        &.wait {
+                            background: var(--color-13);
+                            color: var(--color-10);
+                        }
+                        &.reject {
+                            background: var(--color-14);
+                            color: var(--color-11);
+                        }
+                    }
+                    &:not(:last-child) {
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--color-5);
+            }
+        }
+    } 
+    &_app {
+        .td:nth-child(1) {
+            width: 160px;
+        }
+        .td:nth-child(2) {
+            width: 180px;
+        }
+        .td:nth-child(3) {
+            width: 150px;
+        }
+        .td:nth-child(4) {
+            width: 180px;
+        }
+        .td:nth-child(5) {
+            width: 200px;
+        }
+        .td:nth-child(6) {
+            width: 180px;
+        }
+        .td:nth-child(7) {
+            width: 190px;
+        }
+        .td:nth-child(8) {
+            width: 173px;
+        }
+        .td:nth-child(9) {
+            width: 85px;
         }
     }
 }
@@ -235,6 +423,7 @@ h1 {
     }
 }
 .body {
+    @include for-flex-column-start;
     -webkit-box-flex: 1;
     -ms-flex: 1;
         flex: 1;
@@ -279,6 +468,7 @@ h1 {
     // ANCHOR Карточки создания счета и бизнеса
     &_nav {
         @include for-flex-start;
+        margin-bottom: 37px;
         &_item {
             @include for-flex-start;
             padding: 11px 20px 11px 11px;
