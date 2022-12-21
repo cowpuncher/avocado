@@ -24,11 +24,62 @@
   --radius-4: 6px;
 }
 
-html, body, div, p, a, span, ul, ol, li, main, header, footer, section, h1, h2, h3, h4, h5, h6, input, textarea, button, form, section, main, header, footer {
+html, body, div, p, a, span, ul, ol, li, main, header, footer, section, h1, h2, h3, h4, h5, h6, input, textarea, button, form, section, main, header, footer, nav {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar, div::-webkit-scrollbar, p::-webkit-scrollbar, a::-webkit-scrollbar, span::-webkit-scrollbar, ul::-webkit-scrollbar, ol::-webkit-scrollbar, li::-webkit-scrollbar, main::-webkit-scrollbar, header::-webkit-scrollbar, footer::-webkit-scrollbar, section::-webkit-scrollbar, h1::-webkit-scrollbar, h2::-webkit-scrollbar, h3::-webkit-scrollbar, h4::-webkit-scrollbar, h5::-webkit-scrollbar, h6::-webkit-scrollbar, input::-webkit-scrollbar, textarea::-webkit-scrollbar, button::-webkit-scrollbar, form::-webkit-scrollbar, section::-webkit-scrollbar, main::-webkit-scrollbar, header::-webkit-scrollbar, footer::-webkit-scrollbar, nav::-webkit-scrollbar {
+  width: 5px; /* ширина scrollbar */
+}
+html::-ms-scrollbar, body::-ms-scrollbar, div::-ms-scrollbar, p::-ms-scrollbar, a::-ms-scrollbar, span::-ms-scrollbar, ul::-ms-scrollbar, ol::-ms-scrollbar, li::-ms-scrollbar, main::-ms-scrollbar, header::-ms-scrollbar, footer::-ms-scrollbar, section::-ms-scrollbar, h1::-ms-scrollbar, h2::-ms-scrollbar, h3::-ms-scrollbar, h4::-ms-scrollbar, h5::-ms-scrollbar, h6::-ms-scrollbar, input::-ms-scrollbar, textarea::-ms-scrollbar, button::-ms-scrollbar, form::-ms-scrollbar, section::-ms-scrollbar, main::-ms-scrollbar, header::-ms-scrollbar, footer::-ms-scrollbar, nav::-ms-scrollbar {
+  width: 5px; /* ширина scrollbar */
+}
+html::-ms-scrollbar, body::-ms-scrollbar, div::-ms-scrollbar, p::-ms-scrollbar, a::-ms-scrollbar, span::-ms-scrollbar, ul::-ms-scrollbar, ol::-ms-scrollbar, li::-ms-scrollbar, main::-ms-scrollbar, header::-ms-scrollbar, footer::-ms-scrollbar, section::-ms-scrollbar, h1::-ms-scrollbar, h2::-ms-scrollbar, h3::-ms-scrollbar, h4::-ms-scrollbar, h5::-ms-scrollbar, h6::-ms-scrollbar, input::-ms-scrollbar, textarea::-ms-scrollbar, button::-ms-scrollbar, form::-ms-scrollbar, section::-ms-scrollbar, main::-ms-scrollbar, header::-ms-scrollbar, footer::-ms-scrollbar, nav::-ms-scrollbar {
+  width: 5px; /* ширина scrollbar */
+}
+html::-o-scrollbar, body::-o-scrollbar, div::-o-scrollbar, p::-o-scrollbar, a::-o-scrollbar, span::-o-scrollbar, ul::-o-scrollbar, ol::-o-scrollbar, li::-o-scrollbar, main::-o-scrollbar, header::-o-scrollbar, footer::-o-scrollbar, section::-o-scrollbar, h1::-o-scrollbar, h2::-o-scrollbar, h3::-o-scrollbar, h4::-o-scrollbar, h5::-o-scrollbar, h6::-o-scrollbar, input::-o-scrollbar, textarea::-o-scrollbar, button::-o-scrollbar, form::-o-scrollbar, section::-o-scrollbar, main::-o-scrollbar, header::-o-scrollbar, footer::-o-scrollbar, nav::-o-scrollbar {
+  width: 5px; /* ширина scrollbar */
+}
+html::-moz-scrollbar, body::-moz-scrollbar, div::-moz-scrollbar, p::-moz-scrollbar, a::-moz-scrollbar, span::-moz-scrollbar, ul::-moz-scrollbar, ol::-moz-scrollbar, li::-moz-scrollbar, main::-moz-scrollbar, header::-moz-scrollbar, footer::-moz-scrollbar, section::-moz-scrollbar, h1::-moz-scrollbar, h2::-moz-scrollbar, h3::-moz-scrollbar, h4::-moz-scrollbar, h5::-moz-scrollbar, h6::-moz-scrollbar, input::-moz-scrollbar, textarea::-moz-scrollbar, button::-moz-scrollbar, form::-moz-scrollbar, section::-moz-scrollbar, main::-moz-scrollbar, header::-moz-scrollbar, footer::-moz-scrollbar, nav::-moz-scrollbar {
+  width: 5px; /* ширина scrollbar */
+}
+html::-webkit-scrollbar-track, body::-webkit-scrollbar-track, div::-webkit-scrollbar-track, p::-webkit-scrollbar-track, a::-webkit-scrollbar-track, span::-webkit-scrollbar-track, ul::-webkit-scrollbar-track, ol::-webkit-scrollbar-track, li::-webkit-scrollbar-track, main::-webkit-scrollbar-track, header::-webkit-scrollbar-track, footer::-webkit-scrollbar-track, section::-webkit-scrollbar-track, h1::-webkit-scrollbar-track, h2::-webkit-scrollbar-track, h3::-webkit-scrollbar-track, h4::-webkit-scrollbar-track, h5::-webkit-scrollbar-track, h6::-webkit-scrollbar-track, input::-webkit-scrollbar-track, textarea::-webkit-scrollbar-track, button::-webkit-scrollbar-track, form::-webkit-scrollbar-track, section::-webkit-scrollbar-track, main::-webkit-scrollbar-track, header::-webkit-scrollbar-track, footer::-webkit-scrollbar-track, nav::-webkit-scrollbar-track {
+  background: rgba(230, 234, 238, 0.24); /* цвет дорожки */
+  border-radius: 5px;
+}
+html::-moz-scrollbar-track, body::-moz-scrollbar-track, div::-moz-scrollbar-track, p::-moz-scrollbar-track, a::-moz-scrollbar-track, span::-moz-scrollbar-track, ul::-moz-scrollbar-track, ol::-moz-scrollbar-track, li::-moz-scrollbar-track, main::-moz-scrollbar-track, header::-moz-scrollbar-track, footer::-moz-scrollbar-track, section::-moz-scrollbar-track, h1::-moz-scrollbar-track, h2::-moz-scrollbar-track, h3::-moz-scrollbar-track, h4::-moz-scrollbar-track, h5::-moz-scrollbar-track, h6::-moz-scrollbar-track, input::-moz-scrollbar-track, textarea::-moz-scrollbar-track, button::-moz-scrollbar-track, form::-moz-scrollbar-track, section::-moz-scrollbar-track, main::-moz-scrollbar-track, header::-moz-scrollbar-track, footer::-moz-scrollbar-track, nav::-moz-scrollbar-track {
+  background: rgba(230, 234, 238, 0.24); /* цвет дорожки */
+  border-radius: 5px;
+}
+html::-o-scrollbar-track, body::-o-scrollbar-track, div::-o-scrollbar-track, p::-o-scrollbar-track, a::-o-scrollbar-track, span::-o-scrollbar-track, ul::-o-scrollbar-track, ol::-o-scrollbar-track, li::-o-scrollbar-track, main::-o-scrollbar-track, header::-o-scrollbar-track, footer::-o-scrollbar-track, section::-o-scrollbar-track, h1::-o-scrollbar-track, h2::-o-scrollbar-track, h3::-o-scrollbar-track, h4::-o-scrollbar-track, h5::-o-scrollbar-track, h6::-o-scrollbar-track, input::-o-scrollbar-track, textarea::-o-scrollbar-track, button::-o-scrollbar-track, form::-o-scrollbar-track, section::-o-scrollbar-track, main::-o-scrollbar-track, header::-o-scrollbar-track, footer::-o-scrollbar-track, nav::-o-scrollbar-track {
+  background: rgba(230, 234, 238, 0.24); /* цвет дорожки */
+  border-radius: 5px;
+}
+html::-ms-scrollbar-track, body::-ms-scrollbar-track, div::-ms-scrollbar-track, p::-ms-scrollbar-track, a::-ms-scrollbar-track, span::-ms-scrollbar-track, ul::-ms-scrollbar-track, ol::-ms-scrollbar-track, li::-ms-scrollbar-track, main::-ms-scrollbar-track, header::-ms-scrollbar-track, footer::-ms-scrollbar-track, section::-ms-scrollbar-track, h1::-ms-scrollbar-track, h2::-ms-scrollbar-track, h3::-ms-scrollbar-track, h4::-ms-scrollbar-track, h5::-ms-scrollbar-track, h6::-ms-scrollbar-track, input::-ms-scrollbar-track, textarea::-ms-scrollbar-track, button::-ms-scrollbar-track, form::-ms-scrollbar-track, section::-ms-scrollbar-track, main::-ms-scrollbar-track, header::-ms-scrollbar-track, footer::-ms-scrollbar-track, nav::-ms-scrollbar-track {
+  background: rgba(230, 234, 238, 0.24); /* цвет дорожки */
+  border-radius: 5px;
+}
+html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb, div::-webkit-scrollbar-thumb, p::-webkit-scrollbar-thumb, a::-webkit-scrollbar-thumb, span::-webkit-scrollbar-thumb, ul::-webkit-scrollbar-thumb, ol::-webkit-scrollbar-thumb, li::-webkit-scrollbar-thumb, main::-webkit-scrollbar-thumb, header::-webkit-scrollbar-thumb, footer::-webkit-scrollbar-thumb, section::-webkit-scrollbar-thumb, h1::-webkit-scrollbar-thumb, h2::-webkit-scrollbar-thumb, h3::-webkit-scrollbar-thumb, h4::-webkit-scrollbar-thumb, h5::-webkit-scrollbar-thumb, h6::-webkit-scrollbar-thumb, input::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb, button::-webkit-scrollbar-thumb, form::-webkit-scrollbar-thumb, section::-webkit-scrollbar-thumb, main::-webkit-scrollbar-thumb, header::-webkit-scrollbar-thumb, footer::-webkit-scrollbar-thumb, nav::-webkit-scrollbar-thumb {
+  background: #E6EAEE; /* цвет плашки */
+  border-radius: 5px; /* закругления плашки */
+  border: 1px solid #E6EAEE; /* padding вокруг плашки */
+}
+html::-moz-scrollbar-thumb, body::-moz-scrollbar-thumb, div::-moz-scrollbar-thumb, p::-moz-scrollbar-thumb, a::-moz-scrollbar-thumb, span::-moz-scrollbar-thumb, ul::-moz-scrollbar-thumb, ol::-moz-scrollbar-thumb, li::-moz-scrollbar-thumb, main::-moz-scrollbar-thumb, header::-moz-scrollbar-thumb, footer::-moz-scrollbar-thumb, section::-moz-scrollbar-thumb, h1::-moz-scrollbar-thumb, h2::-moz-scrollbar-thumb, h3::-moz-scrollbar-thumb, h4::-moz-scrollbar-thumb, h5::-moz-scrollbar-thumb, h6::-moz-scrollbar-thumb, input::-moz-scrollbar-thumb, textarea::-moz-scrollbar-thumb, button::-moz-scrollbar-thumb, form::-moz-scrollbar-thumb, section::-moz-scrollbar-thumb, main::-moz-scrollbar-thumb, header::-moz-scrollbar-thumb, footer::-moz-scrollbar-thumb, nav::-moz-scrollbar-thumb {
+  background: #E6EAEE; /* цвет плашки */
+  border-radius: 5px; /* закругления плашки */
+  border: 1px solid #E6EAEE; /* padding вокруг плашки */
+}
+html::-o-scrollbar-thumb, body::-o-scrollbar-thumb, div::-o-scrollbar-thumb, p::-o-scrollbar-thumb, a::-o-scrollbar-thumb, span::-o-scrollbar-thumb, ul::-o-scrollbar-thumb, ol::-o-scrollbar-thumb, li::-o-scrollbar-thumb, main::-o-scrollbar-thumb, header::-o-scrollbar-thumb, footer::-o-scrollbar-thumb, section::-o-scrollbar-thumb, h1::-o-scrollbar-thumb, h2::-o-scrollbar-thumb, h3::-o-scrollbar-thumb, h4::-o-scrollbar-thumb, h5::-o-scrollbar-thumb, h6::-o-scrollbar-thumb, input::-o-scrollbar-thumb, textarea::-o-scrollbar-thumb, button::-o-scrollbar-thumb, form::-o-scrollbar-thumb, section::-o-scrollbar-thumb, main::-o-scrollbar-thumb, header::-o-scrollbar-thumb, footer::-o-scrollbar-thumb, nav::-o-scrollbar-thumb {
+  background: #E6EAEE; /* цвет плашки */
+  border-radius: 5px; /* закругления плашки */
+  border: 1px solid #E6EAEE; /* padding вокруг плашки */
+}
+html::-ms-scrollbar-thumb, body::-ms-scrollbar-thumb, div::-ms-scrollbar-thumb, p::-ms-scrollbar-thumb, a::-ms-scrollbar-thumb, span::-ms-scrollbar-thumb, ul::-ms-scrollbar-thumb, ol::-ms-scrollbar-thumb, li::-ms-scrollbar-thumb, main::-ms-scrollbar-thumb, header::-ms-scrollbar-thumb, footer::-ms-scrollbar-thumb, section::-ms-scrollbar-thumb, h1::-ms-scrollbar-thumb, h2::-ms-scrollbar-thumb, h3::-ms-scrollbar-thumb, h4::-ms-scrollbar-thumb, h5::-ms-scrollbar-thumb, h6::-ms-scrollbar-thumb, input::-ms-scrollbar-thumb, textarea::-ms-scrollbar-thumb, button::-ms-scrollbar-thumb, form::-ms-scrollbar-thumb, section::-ms-scrollbar-thumb, main::-ms-scrollbar-thumb, header::-ms-scrollbar-thumb, footer::-ms-scrollbar-thumb, nav::-ms-scrollbar-thumb {
+  background: #E6EAEE; /* цвет плашки */
+  border-radius: 5px; /* закругления плашки */
+  border: 1px solid #E6EAEE; /* padding вокруг плашки */
 }
 
 body {
@@ -108,6 +159,10 @@ h1 {
   flex-direction: row;
 }
 
+.wrap {
+  position: relative;
+}
+
 /*ANCHOR  Основные стили */
 .main_wrapper {
   display: -webkit-box;
@@ -133,6 +188,49 @@ h1 {
 /*ANCHOR -- Хлебных крошек*/
 .breadcrumbs span {
   margin: 0 6px;
+}
+
+/*ANCHOR -- Попап блок*/
+.wrap_popupblock {
+  position: relative;
+}
+.wrap_popupblock.active .popupblock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.wrap_popupblock .popupblock a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  font-weight: 600;
+  padding: 16px;
+  border-radius: var(--radius-1);
+}
+.wrap_popupblock .popupblock a img {
+  margin-right: 10px;
+}
+.wrap_popupblock .popupblock a:hover {
+  background: var(--color-3);
+}
+
+.popupblock {
+  display: none;
+  position: absolute;
+  top: 110%;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 4px 16px rgba(9, 60, 102, 0.1);
+          box-shadow: 0px 4px 16px rgba(9, 60, 102, 0.1);
+  border-radius: 8px;
+  min-width: 290px;
+  right: 0;
+  max-width: 375px;
+  width: 100%;
+  padding: 8px;
 }
 
 /*ANCHOR -- Кнопок*/
@@ -175,6 +273,98 @@ label input {
   outline: none;
   border: 1px solid transparent;
   width: 100%;
+}
+
+/*ANCHOR -- Уведомления*/
+.notif ~ .popupblock {
+  max-height: 700px;
+  overflow: hidden;
+  width: 375px;
+}
+.notif ~ .popupblock a {
+  display: inline-block;
+  padding: 0;
+  height: auto;
+  width: auto;
+  margin: 0;
+  color: var(--color-4);
+}
+.notif ~ .popupblock a:hover {
+  background: transparent;
+}
+.notif_top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+.notif_top_title {
+  font-weight: 600;
+}
+.notif_top_title__nobody {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-8);
+}
+.notif_top_more {
+  font-weight: 600;
+  font-size: 15px;
+}
+.notif_list {
+  height: 100%;
+  overflow: auto;
+}
+.notif_list_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.notif_list_block {
+  font-size: 13px;
+}
+.notif_list_block_top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  color: var(--color-8);
+}
+.notif_list_block_body__title {
+  font-weight: 600;
+  font-size: 15px;
+}
+.notif_list_icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-3);
+  background: var(--color-3);
 }
 
 /*ANCHOR  Компонентные блоки */
@@ -223,6 +413,7 @@ label input {
 /*ANCHOR -- Таблица*/
 .table {
   min-width: 1535px;
+  /*ANCHOR ---- Пагинация*/
 }
 .table_section {
   display: -webkit-box;
@@ -252,6 +443,10 @@ label input {
   font-size: var(--fontsize-main);
   font-weight: 600;
   color: var(--color-1);
+}
+.table_body {
+  max-height: 380px;
+  overflow: auto;
 }
 .table_body .tr {
   display: -webkit-box;
@@ -340,7 +535,7 @@ label input {
   color: var(--color-11);
 }
 .table_body .tr .td span:not(:last-child) {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 .table_body .tr:not(:last-child) {
   border-bottom: 1px solid var(--color-5);
@@ -349,31 +544,85 @@ label input {
   width: 160px;
 }
 .table_app .td:nth-child(2) {
-  width: 180px;
+  width: 12%;
+  padding-right: 90px;
 }
 .table_app .td:nth-child(3) {
-  width: 150px;
+  width: 10%;
 }
 .table_app .td:nth-child(4) {
-  width: 180px;
+  width: 12%;
 }
 .table_app .td:nth-child(5) {
-  width: 200px;
+  width: 13%;
 }
 .table_app .td:nth-child(6) {
-  width: 180px;
+  width: 12%;
 }
 .table_app .td:nth-child(7) {
-  width: 190px;
+  width: 13%;
 }
 .table_app .td:nth-child(8) {
-  width: 173px;
+  width: 11%;
 }
 .table_app .td:nth-child(9) {
-  width: 85px;
+  width: auto;
 }
 .table_pagi {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
   margin-top: auto;
+  position: relative;
+  padding-left: 18px;
+}
+.table_pagi_links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: -4px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.table_pagi_link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 44px;
+  width: 44px;
+  border-radius: var(--radius-3);
+  border: 1px solid var(--color-5);
+  font-weight: 600;
+}
+.table_pagi_link.active {
+  border-color: var(--color-4);
+}
+.table_pagi a:hover {
+  background-color: var(--color-2);
+  border-color: var(--color-2);
+}
+.table_pagi li {
+  padding: 4px;
 }
 
 /* ANCHOR Сайдбар он же header */
@@ -405,6 +654,10 @@ label input {
 }
 .header_top_nav {
   display: none;
+}
+.header_nav {
+  height: 100%;
+  overflow: auto;
 }
 .header_nav li {
   margin-bottom: 12px;
@@ -467,7 +720,7 @@ label input {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding: 35px 40px 25px 28px;
+  padding: 35px 40px 50px 28px;
 }
 .body_top {
   display: -webkit-box;
@@ -494,7 +747,7 @@ label input {
           align-items: center;
   margin-top: 8px;
 }
-.body_top_nav a {
+.body_top_nav span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -509,22 +762,56 @@ label input {
   min-width: 48px;
   border-radius: var(--radius-1);
   padding: 0 12px;
+  cursor: pointer;
 }
-.body_top_nav a.cabinet {
+.body_top_nav span.cabinet {
   margin-left: 5px;
   position: relative;
 }
-.body_top_nav a.cabinet .name {
+.body_top_nav span.cabinet .name {
   font-weight: 600;
   font-size: 15px;
   line-height: 20px;
   color: #595959;
   padding: 0 30px 0 13px;
 }
-.body_top_nav a.cabinet .arrow {
+.body_top_nav span.cabinet .arrow {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   position: absolute;
-  top: 9px;
+  top: 20px;
   right: 11px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.body_top_nav span.cabinet.active .popupblock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.body_top_nav span.cabinet.active .arrow {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+.body_top_nav span.active ~ .popupblock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .body_nav {
   display: -webkit-box;

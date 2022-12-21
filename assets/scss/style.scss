@@ -42,6 +42,59 @@
     align-items: flex-start;
     flex-direction: column;
 }
+@mixin for-scrollbar {
+    &::-webkit-scrollbar {
+        width: 5px;               /* ширина scrollbar */
+    }
+    &::-ms-scrollbar {
+        width: 5px;               /* ширина scrollbar */
+    }
+    &::-ms-scrollbar {
+        width: 5px;               /* ширина scrollbar */
+    }
+    &::-o-scrollbar {
+        width: 5px;               /* ширина scrollbar */
+    }    
+    &::-moz-scrollbar {
+        width: 5px;               /* ширина scrollbar */
+    }    
+    &::-webkit-scrollbar-track {
+        background: rgba(230, 234, 238, 0.24);   /* цвет дорожки */
+        border-radius: 5px;     
+    }
+    &::-moz-scrollbar-track {
+        background: rgba(230, 234, 238, 0.24);   /* цвет дорожки */
+        border-radius: 5px;     
+    }
+    &::-o-scrollbar-track {
+        background: rgba(230, 234, 238, 0.24);   /* цвет дорожки */
+        border-radius: 5px;     
+    }
+    &::-ms-scrollbar-track {
+        background: rgba(230, 234, 238, 0.24);   /* цвет дорожки */
+        border-radius: 5px;     
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #E6EAEE;  /* цвет плашки */
+        border-radius: 5px;  /* закругления плашки */
+        border: 1px solid #E6EAEE;  /* padding вокруг плашки */
+    }
+    &::-moz-scrollbar-thumb {
+        background: #E6EAEE;  /* цвет плашки */
+        border-radius: 5px;  /* закругления плашки */
+        border: 1px solid #E6EAEE;  /* padding вокруг плашки */
+    }
+    &::-o-scrollbar-thumb {
+        background: #E6EAEE;  /* цвет плашки */
+        border-radius: 5px;  /* закругления плашки */
+        border: 1px solid #E6EAEE;  /* padding вокруг плашки */
+    }
+    &::-ms-scrollbar-thumb {
+        background: #E6EAEE;  /* цвет плашки */
+        border-radius: 5px;  /* закругления плашки */
+        border: 1px solid #E6EAEE;  /* padding вокруг плашки */
+    }
+}
 
 /* ANCHOR Спецификация */
 :root {
@@ -71,11 +124,12 @@
   --radius-4: 6px;
 }
 
-html, body, div, p, a, span, ul, ol, li, main, header, footer, section, h1, h2, h3, h4, h5, h6, input, textarea, button, form, section, main, header, footer {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+html, body, div, p, a, span, ul, ol, li, main, header, footer, section, h1, h2, h3, h4, h5, h6, input, textarea, button, form, section, main, header, footer, nav {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    @include for-scrollbar;
 }
 
 body {
@@ -153,7 +207,9 @@ h1 {
       -ms-flex-direction: row;
           flex-direction: row;
 }
-
+.wrap {
+    position: relative;
+}
 /*ANCHOR  Основные стили */
 .main_wrapper {
   display: -webkit-box;
@@ -176,6 +232,45 @@ h1 {
     span {
         margin: 0 6px;
     }
+}
+/*ANCHOR -- Попап блок*/
+.wrap {
+    &_popupblock {
+        position: relative;
+        &.active {
+            .popupblock {
+                display: flex;
+            }
+        }
+        .popupblock {            
+            a {
+                @include for-flex-center;
+                width: 100%;
+                font-weight: 600;
+                padding: 16px;
+                border-radius: var(--radius-1);
+                img {
+                    margin-right: 10px;
+                }
+                &:hover {
+                    background: var(--color-3);
+                }
+            }
+        }
+    }
+}
+.popupblock {
+    display: none;
+    position: absolute;
+    top: 110%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 16px rgb(9 60 102 / 10%);
+    border-radius: 8px;
+    min-width: 290px;
+    right: 0;
+    max-width: 375px;
+    width: 100%;
+    padding: 8px;
 }
 /*ANCHOR -- Кнопок*/
 .btn {
@@ -208,6 +303,71 @@ label {
         outline: none;
         border: 1px solid transparent;
         width: 100%;
+    }
+}
+/*ANCHOR -- Уведомления*/
+.notif {
+    ~ .popupblock {
+        max-height: 700px;
+        overflow: hidden;
+        width: 375px;
+        a {
+            display: inline-block;
+            padding: 0;
+            height: auto;
+            width: auto;
+            margin: 0;
+            color: var(--color-4);
+            &:hover {
+                background: transparent;
+            }
+        }
+    }
+    &_top {
+        @include for-flex-just-between-start;
+        width: 100%;
+
+        &_title {
+            font-weight: 600;
+
+            &__nobody {
+                font-size: 15px;
+                font-weight: 500;
+                color: var(--color-8);
+            }
+        }
+        &_more {
+            font-weight: 600;
+            font-size: 15px;
+        }
+    }
+    &_list {
+        height: 100%;
+        overflow: auto;
+        &_item {
+            @include for-flex-just-between-start;
+        }
+        &_block {
+            font-size: 13px;
+            &_top {
+                @include for-flex-just-between;
+                width: 100%;
+                color: var(--color-8);
+            }
+            &_body {
+                &__title {
+                    font-weight: 600;
+                    font-size: 15px;
+                }
+            }
+        }
+        &_icon {
+            @include for-flex-just-center;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-3);
+            background: var(--color-3);
+        }
     }
 }
 /*ANCHOR  Компонентные блоки */
@@ -266,6 +426,8 @@ label {
         }
     }
     &_body {
+        max-height: 380px;
+        overflow: auto;
         .tr {
             @include for-flex-start;
             padding: 16px;
@@ -323,7 +485,7 @@ label {
                         }
                     }
                     &:not(:last-child) {
-                        margin-bottom: 5px;
+                        margin-bottom: 6px;
                     }
                 }
             }
@@ -337,32 +499,65 @@ label {
             width: 160px;
         }
         .td:nth-child(2) {
-            width: 180px;
+            width: 12%;
+            padding-right: 90px;
         }
         .td:nth-child(3) {
-            width: 150px;
+            width: 10%;
         }
         .td:nth-child(4) {
-            width: 180px;
+            width: 12%;
         }
         .td:nth-child(5) {
-            width: 200px;
+            width: 13%;
         }
         .td:nth-child(6) {
-            width: 180px;
+            width: 12%;
         }
         .td:nth-child(7) {
-            width: 190px;
+            width: 13%;
         }
         .td:nth-child(8) {
-            width: 173px;
+            width: 11%;
         }
         .td:nth-child(9) {
-            width: 85px;
+            width: auto;
         }
     }
+    /*ANCHOR ---- Пагинация*/
     &_pagi {
+        @include for-flex-just-between;
+        width: 100%;
         margin-top: auto;
+        position: relative;
+        padding-left: 18px;
+        &_links {
+            @include for-flex-just-center;
+            margin: -4px;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        &_link {
+            @include for-flex-just-center;
+            height: 44px;
+            width: 44px;
+            border-radius: var(--radius-3);
+            border: 1px solid var(--color-5);
+            font-weight: 600;
+            &.active {
+                border-color: var(--color-4);
+            }
+        }
+        a {
+            &:hover {
+                background-color: var(--color-2);
+                border-color: var(--color-2);
+            }
+        }
+        li {
+            padding: 4px;           
+        }
     }
 }
 /* ANCHOR Сайдбар он же header */
@@ -386,6 +581,8 @@ label {
         }
     }
     &_nav {   
+        height: 100%;
+        overflow: auto;
         li {
             margin-bottom: 12px;
             &.active,
@@ -430,7 +627,7 @@ label {
     -webkit-box-flex: 1;
     -ms-flex: 1;
         flex: 1;
-    padding: 35px 40px 25px 28px;
+    padding: 35px 40px 50px 28px;
     // ANCHOR Топ в теле страницы
     &_top {
         @include for-flex-just-between-start;
@@ -442,13 +639,14 @@ label {
         &_nav {
             @include for-flex-center;
             margin-top: 8px;
-            a {
+            span {
                 @include for-flex-just-center;
                 background: var(--color-2);
                 height: 48px;
                 min-width: 48px;
                 border-radius: var(--radius-1);
                 padding: 0 12px;
+                cursor: pointer;
                 &.cabinet {
                     margin-left: 5px;
                     position: relative;
@@ -460,12 +658,28 @@ label {
                         padding: 0 30px 0 13px;
                     }
                     .arrow {
+                        transition: all .3s ease;
                         position: absolute;
-                        top: 9px;
+                        top: 20px;
                         right: 11px;
+                        display: flex;
+                    }
+                    &.active {
+                        .popupblock {
+                            @include for-flex-column-start;
+                        }
+                        .arrow {
+                            transform: rotate(-180deg);
+                        }
+                    }
+                }
+                &.active {
+                    ~ .popupblock {
+                        @include for-flex-column-start;
                     }
                 }
             }
+            
         }
     }
     // ANCHOR Карточки создания счета и бизнеса

@@ -61,16 +61,119 @@
                     </h1>
                 </div>
                 <div class="body_top_nav">
-                    <a href="#" class="notif">
-                        <img src="./assets/img/icons/notification-alarm.svg" alt="notification">
-                    </a>
-                    <a href="#" class="cabinet">
-                        <div class="avatar"><img src="./assets/img/ava.jpg" alt="ava"></div>
-                        <span class="name">Мария М.</span>
-                        <span class="arrow">
-                            <img src="./assets/img/icons/arrow-down.svg" alt="arrow">
+                    <!-- 
+                        Обертка для блока с выпадающим меню начало!
+                        Здесь выпадашка уведовлений. Там текст обрезается с помощью js функции, 
+                        можно задать любое количество обрезаемых букв.
+                        Так же кнопка добавляется через js.  
+                    -->
+                    <div class="wrap_popupblock">
+                        <span class="notif">
+                            <img src="./assets/img/icons/notification-alarm.svg" alt="notification">
                         </span>
-                    </a>
+                        <div class="popupblock">
+                            <div class="notif_top">
+                                <div class="notif_top_title">
+                                    Уведомления
+                                    <div class="notif_top_title__nobody">Новых уведомлений нет</div>
+                                </div>
+                                <a href="#" class="notif_top_more">Прочитать все</a>
+                            </div>
+                            <!--
+                                Здесь список уведомлений, выведи уникаьный id увдемления внутри атрибута data-notif-id.
+                                Это сделал, чтобы ты вывел заголовок и текст один раз, 
+                                а я через js просто буду его при клике переносить в модалку.
+                            -->
+                            <div class="notif_list">
+                                <div data-notif-id="1" class="notif_list_item notif_list_item__new">
+                                    <div class="notif_list_icon"><img src="./assets/img/icons/b-mod.svg" alt="bank"></div>
+                                    <div class="notif_list_block">
+                                        <div class="notif_list_block_top">
+                                            <div class="notif_list_block_top__name">Модульбанк</div>
+                                            <time class="notif_list_block_top__date">17.11.2022, 17:15</time>
+                                        </div>
+                                        <div class="notif_list_block_body">
+                                            <div class="notif_list_block_body__title">Снижение вознаграждения за регистрацию ИП</div>
+                                            <div class="notif_list_block_body__text">
+                                                <p>
+                                                    Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
+                                                </p>
+                                                <p>                                                    
+                                                    У клиентов банка появилась возможность подключить овердрафт на год бесплатно, а пользоваться им, когда нужно дополнительное финансирование. Как это работает: к расчетному счету подключается кредитный лимит, а оплата проходит автоматически, если собственных средств на счете не хватило для проведения платежа.
+                                                </p>
+                                                <p>
+                                                    Проценты начисляются только на деньги, которыми клиент воспользовался, а не на весь лимит. Кроме того, клиент платит проценты ровно за тот период, в который он пользовался этими деньгами – и ничего лишнего.60 дней — столько можно находиться «в минусе». Если вернуть деньги в день расчета с контрагентом до 23:00 — проценты не начисляются.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-notif-id="2" class="notif_list_item notif_list_item__new">
+                                    <div class="notif_list_icon"><img src="./assets/img/icons/b-mod.svg" alt="bank"></div>
+                                    <div class="notif_list_block">
+                                        <div class="notif_list_block_top">
+                                            <div class="notif_list_block_top__name">Модульбанк</div>
+                                            <time class="notif_list_block_top__date">17.11.2022, 17:15</time>
+                                        </div>
+                                        <div class="notif_list_block_body">
+                                            <div class="notif_list_block_body__title">Снижение вознаграждения за регистрацию ИП</div>
+                                            <div class="notif_list_block_body__text">
+                                                <p>
+                                                    Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
+                                                </p>
+                                                <p>                                                    
+                                                    У клиентов банка появилась возможность подключить овердрафт на год бесплатно, а пользоваться им, когда нужно дополнительное финансирование. Как это работает: к расчетному счету подключается кредитный лимит, а оплата проходит автоматически, если собственных средств на счете не хватило для проведения платежа.
+                                                </p>
+                                                <p>
+                                                    Проценты начисляются только на деньги, которыми клиент воспользовался, а не на весь лимит. Кроме того, клиент платит проценты ровно за тот период, в который он пользовался этими деньгами – и ничего лишнего.60 дней — столько можно находиться «в минусе». Если вернуть деньги в день расчета с контрагентом до 23:00 — проценты не начисляются.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-notif-id="3" class="notif_list_item">
+                                    <div class="notif_list_icon"><img src="./assets/img/icons/b-mod.svg" alt="bank"></div>
+                                    <div class="notif_list_block">
+                                        <div class="notif_list_block_top">
+                                            <div class="notif_list_block_top__name">Модульбанк</div>
+                                            <time class="notif_list_block_top__date">17.11.2022, 17:15</time>
+                                        </div>
+                                        <div class="notif_list_block_body">
+                                            <div class="notif_list_block_body__title">Снижение вознаграждения за регистрацию ИП</div>
+                                            <div class="notif_list_block_body__text">
+                                                <p>
+                                                    Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
+                                                </p>
+                                                <p>                                                    
+                                                    У клиентов банка появилась возможность подключить овердрафт на год бесплатно, а пользоваться им, когда нужно дополнительное финансирование. Как это работает: к расчетному счету подключается кредитный лимит, а оплата проходит автоматически, если собственных средств на счете не хватило для проведения платежа.
+                                                </p>
+                                                <p>
+                                                    Проценты начисляются только на деньги, которыми клиент воспользовался, а не на весь лимит. Кроме того, клиент платит проценты ровно за тот период, в который он пользовался этими деньгами – и ничего лишнего.60 дней — столько можно находиться «в минусе». Если вернуть деньги в день расчета с контрагентом до 23:00 — проценты не начисляются.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Обертка для блока с выпадающим меню конец -->
+                    <!-- Обертка для блока с выпадающим меню начало -->
+                    <div class="wrap_popupblock">
+                        <span class="cabinet">
+                            <div class="avatar"><img src="./assets/img/ava.jpg" alt="ava"></div>
+                            <div class="name">Мария М.</div>
+                            <div class="arrow">
+                                <img src="./assets/img/icons/arrow-down.svg" alt="arrow">
+                            </div>
+                        </span>
+                        <div class="popupblock">
+                            <a href="#"><img src="./assets/img/icons/profile.svg" alt="profile"> Личный кабинет</a>
+                            <a href="#"><img src="./assets/img/icons/logout.svg" alt="logout"> Выход</a>
+                        </div>
+                    </div>
+                    <!-- Обертка для блока с выпадающим меню конец -->
                 </div>
             </section>
             <!-- Шапка с заголовком и крошками конец -->
@@ -110,6 +213,9 @@
                 <form action="/" class="filter_form">
                     <label class="label search">
                         <input type="text" class="input" name="name" placeholder="Поиск по ФИО">
+                    </label>
+                    <label class="label doc">
+                        <input type="text" class="input" name="name" placeholder="Поиск по ИНН">
                     </label>
                 </form>
             </section>
@@ -205,15 +311,64 @@
                                 <span class="bet">2500 ₽</span>
                             </div>
                         </div>
+                        <div class="tr">
+                            <div class="td">320020 <span class="info">Открытие бизнеса</span></div>
+                            <div class="td">Мария Иванова</div>
+                            <div class="td">14.11.2022</div>
+                            <div class="td">16.11.2022</div>
+                            <div class="td">ИП Иванова М.Ю.</div>
+                            <div class="td">772909013156</div>
+                            <div class="td">
+                                <span class="bank"><img src="./assets/img/icons/bank3.svg" alt=""> Альфа Банк</span>
+                                <span class="bank"><img src="./assets/img/icons/bank4.svg" alt=""> Модульбанк</span>
+                                <span class="bank"><img src="./assets/img/icons/bank5.svg" alt=""> Уралсиб</span>
+                                <span class="bank"><img src="./assets/img/icons/bank2.svg" alt=""> Тинькофф</span>
+                                <span class="bank"><img src="./assets/img/icons/bank1.svg" alt=""> Открытие</span>
+                            </div>
+                            <div class="td">
+                                <span class="status wait">В обработке</span>
+                                <span class="status wait">В обработке</span>
+                                <span class="status reject">Отказ</span>
+                                <span class="status open">Открыт</span>
+                                <span class="status open">Открыт</span>
+                            </div>
+                            <div class="td">
+                                <span class="bet">2500 ₽</span>
+                                <span class="bet">2500 ₽</span>
+                                <span class="bet">0</span>
+                                <span class="bet">2500 ₽</span>
+                                <span class="bet">2500 ₽</span>
+                            </div>
+                        </div>
                     </div>
                 </div>            
                 <div class="table_pagi">
                     <div class="table_pagi_counter">
                         3 из 200 заявок
                     </div>
-                    <div class="table_pagi_links">
-    
-                    </div>
+                    <ul class="table_pagi_links">
+                        <li>
+                            <a href="#" class="table_pagi_link"><img src="./assets/img/icons/arrow-prev.svg" alt="arrow-prev"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="table_pagi_link">1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="table_pagi_link active">2</a>
+                        </li>
+                        <li>
+                            <a href="#" class="table_pagi_link">3</a>
+                        </li>
+                        <li>
+                            <span class="table_pagi_link">...</span>
+                        </li>
+                        <li>
+                            <a href="#" class="table_pagi_link">9</a>
+                        </li>
+                        <li>
+                            <a href="#" class="table_pagi_link"><img src="./assets/img/icons/arrow-next.svg" alt="arrow-next"></a>
+                        </li>
+                    </ul>
                 </div>
             </section>
         </main>
@@ -225,5 +380,6 @@
         </footer>        
         <!-- Подвал начиная с планшета начало -->
     </div>
+    <script src="./assets/js/script.js"></script>
  </body>
  </html>
