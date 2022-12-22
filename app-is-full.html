@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/fonts.css">
+    <link rel="stylesheet" href="./assets/lib/select/style.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/media.css">
     <title>Avocado</title>
  </head>
  <body>
@@ -17,9 +19,6 @@
                     <img src="./assets/img/icons/logo.svg" alt="logo">
                 </a>
                 <div class="header_top_nav">
-                    <a href="#" class="header_top_nav__btn">
-                        <img src="./assets/img/icons/notification-alarm.svg" alt="notification">
-                    </a>
                     <a href="#" class="header_top_nav__btn">
                         <img src="./assets/img/icons/burger.svg" alt="burger">
                     </a>
@@ -63,11 +62,16 @@
                 <div class="body_top_nav">
                     <!-- 
                         Обертка для блока с выпадающим меню начало!
-                        Здесь выпадашка уведовлений. Там текст обрезается с помощью js функции, 
+
+                        Здесь выпадашка уведовлений. 
+                        Там текст обрезается с помощью js функции, 
                         можно задать любое количество обрезаемых букв.
-                        Так же кнопка добавляется через js.  
+                        Так же кнопка смотреть еще добавляется через js, если текста много.
+                        
+                        Так же элементы которые я перемещаю я им цепляю id, 
+                        имей ввиду, он будет перелетать в шапку в мобиле
                     -->
-                    <div class="wrap_popupblock">
+                    <div class="wrap_popupblock" id="notif">
                         <span class="notif">
                             <img src="./assets/img/icons/notification-alarm.svg" alt="notification">
                         </span>
@@ -80,12 +84,16 @@
                                 <a href="#" class="notif_top_more">Прочитать все</a>
                             </div>
                             <!--
-                                Здесь список уведомлений, выведи уникаьный id увдемления внутри атрибута data-notif-id.
-                                Это сделал, чтобы ты вывел заголовок и текст один раз, 
-                                а я через js просто буду его при клике переносить в модалку.
+                                Уведомления
                             -->
                             <div class="notif_list">
-                                <div data-notif-id="1" class="notif_list_item notif_list_item__new">
+                                <!--
+                                    Если уведомление не прочитанное то 
+                                    вешаем класс notif_list_item__new
+                                    В макете не было кнопки свернуть уведомление, 
+                                    я на всякий случай добавил
+                                -->
+                                <div class="notif_list_item notif_list_item__new">
                                     <div class="notif_list_icon"><img src="./assets/img/icons/b-mod.svg" alt="bank"></div>
                                     <div class="notif_list_block">
                                         <div class="notif_list_block_top">
@@ -94,9 +102,9 @@
                                         </div>
                                         <div class="notif_list_block_body">
                                             <div class="notif_list_block_body__title">Снижение вознаграждения за регистрацию ИП</div>
-                                            <div class="notif_list_block_body__text">
+                                            <div class="notif_list_block_body__text">                                                 
                                                 <p>
-                                                    Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
+                                                    1Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
                                                 </p>
                                                 <p>                                                    
                                                     У клиентов банка появилась возможность подключить овердрафт на год бесплатно, а пользоваться им, когда нужно дополнительное финансирование. Как это работает: к расчетному счету подключается кредитный лимит, а оплата проходит автоматически, если собственных средств на счете не хватило для проведения платежа.
@@ -108,18 +116,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div data-notif-id="2" class="notif_list_item notif_list_item__new">
-                                    <div class="notif_list_icon"><img src="./assets/img/icons/b-mod.svg" alt="bank"></div>
+                                <div class="notif_list_item notif_list_item__new">
+                                    <div class="notif_list_icon"><img src="./assets/img/icons/b-alfa.svg" alt="bank"></div>
                                     <div class="notif_list_block">
                                         <div class="notif_list_block_top">
-                                            <div class="notif_list_block_top__name">Модульбанк</div>
-                                            <time class="notif_list_block_top__date">17.11.2022, 17:15</time>
+                                            <div class="notif_list_block_top__name">Альфа Банк</div>
+                                            <time class="notif_list_block_top__date">17.11.2022, 13:15</time>
                                         </div>
                                         <div class="notif_list_block_body">
                                             <div class="notif_list_block_body__title">Снижение вознаграждения за регистрацию ИП</div>
-                                            <div class="notif_list_block_body__text">
+                                            <div class="notif_list_block_body__text">                                                
                                                 <p>
-                                                    Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
+                                                    2Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
                                                 </p>
                                                 <p>                                                    
                                                     У клиентов банка появилась возможность подключить овердрафт на год бесплатно, а пользоваться им, когда нужно дополнительное финансирование. Как это работает: к расчетному счету подключается кредитный лимит, а оплата проходит автоматически, если собственных средств на счете не хватило для проведения платежа.
@@ -131,18 +139,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div data-notif-id="3" class="notif_list_item">
-                                    <div class="notif_list_icon"><img src="./assets/img/icons/b-mod.svg" alt="bank"></div>
+                                <div class="notif_list_item">
+                                    <div class="notif_list_icon"><img src="./assets/img/icons/b-otk.svg" alt="bank"></div>
                                     <div class="notif_list_block">
                                         <div class="notif_list_block_top">
-                                            <div class="notif_list_block_top__name">Модульбанк</div>
-                                            <time class="notif_list_block_top__date">17.11.2022, 17:15</time>
+                                            <div class="notif_list_block_top__name">ФК Открытие</div>
+                                            <time class="notif_list_block_top__date">15.11.2022, 02:15</time>
                                         </div>
                                         <div class="notif_list_block_body">
                                             <div class="notif_list_block_body__title">Снижение вознаграждения за регистрацию ИП</div>
-                                            <div class="notif_list_block_body__text">
+                                            <div class="notif_list_block_body__text">                                              
                                                 <p>
-                                                    Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
+                                                    3Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
                                                 </p>
                                                 <p>                                                    
                                                     У клиентов банка появилась возможность подключить овердрафт на год бесплатно, а пользоваться им, когда нужно дополнительное финансирование. Как это работает: к расчетному счету подключается кредитный лимит, а оплата проходит автоматически, если собственных средств на счете не хватило для проведения платежа.
@@ -158,7 +166,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Обертка для блока с выпадающим меню конец -->
+                    <!-- 
+                        Блок уведомлений закончился
+                        Обертка для блока с выпадающим меню конец 
+                    -->
                     <!-- Обертка для блока с выпадающим меню начало -->
                     <div class="wrap_popupblock">
                         <span class="cabinet">
@@ -210,13 +221,54 @@
                 <div class="filter_title">
                     Список заявок
                 </div>
-                <form action="/" class="filter_form">
-                    <label class="label search">
+                <form class="filter_form">
+                    <label class="label icon search">
                         <input type="text" class="input" name="name" placeholder="Поиск по ФИО">
                     </label>
-                    <label class="label doc">
+                    <label class="label icon doc">
                         <input type="text" class="input" name="name" placeholder="Поиск по ИНН">
                     </label>
+                    <label class="label icon calendar">
+                        <input type="date" class="input" >
+                    </label>
+                    <label class="label calendar">
+                        <input type="date" class="input" >
+                    </label>
+                    <div class="label select">
+                        <select name="" id="">
+                            <option value="none" selected disabled >Статус</option>
+                            <option value="">
+                                Открыт
+                            </option>
+                            <option value="">
+                                В работе
+                            </option>
+                            <option value="">
+                                Отказ
+                            </option>
+                        </select>
+                    </div>
+                    <div class="label select">
+                        <select name="" id="">
+                            <option value="none" selected disabled >Банк</option>
+                            <option value="">
+                                Альфа Банк
+                            </option>
+                            <option value="">
+                                УралСиб
+                            </option>
+                            <option value="">
+                                Тинькофф
+                            </option>
+                            <option value="">
+                                Сбербанк
+                            </option>
+                            <option value="">
+                                ФК Открытие
+                            </option>
+                        </select>
+                    </div>
+                    <a href="#" class="filter_form_clear">Очистить фильтр<img src="./assets/img/icons/clear.svg" alt="clear"></a>
                 </form>
             </section>
             <!-- Форма с фильтрами конец --> 
@@ -227,121 +279,123 @@
                 можно было перезадать ширину столбцов
             -->  
             <section class="table_section">
-                <div class="table table_app">
-                    <div class="table_head">
-                        <div class="tr">
-                            <div class="td">ID, тип</div>
-                            <div class="td">Автор</div>
-                            <div class="td">Дата заявки</div>
-                            <div class="td">Дата сделки</div>
-                            <div class="td">Компания</div>
-                            <div class="td">ИНН</div>
-                            <div class="td">Банк</div>
-                            <div class="td">Статус</div>
-                            <div class="td">Ставка</div>
-                        </div>
-                    </div>
-                    <div class="table_body">
-                        <div class="tr">
-                            <div class="td">320028 <span class="info">Открытие бизнеса</span></div>
-                            <div class="td">Евгений Перепелкин</div>
-                            <div class="td">16.11.2022</div>
-                            <div class="td">19.11.2022</div>
-                            <div class="td">ИП Машаков И.Г.</div>
-                            <div class="td">243904213224</div>
-                            <div class="td">
-                                <span class="bank"><img src="./assets/img/icons/bank1.svg" alt=""> Открытие</span>
-                                <span class="bank"><img src="./assets/img/icons/bank2.svg" alt=""> Тинькофф</span>
-                            </div>
-                            <div class="td">
-                                <span class="status open">Открыт</span>
-                                <span class="status open">Открыт</span>
-                            </div>
-                            <div class="td">
-                                <span class="bet">2500 ₽</span>
-                                <span class="bet">2500 ₽</span>
+                <div class="table_wrap">
+                    <div class="table table_app">
+                        <div class="table_head">
+                            <div class="tr">
+                                <div class="td">ID, тип</div>
+                                <div class="td">Автор</div>
+                                <div class="td">Дата заявки</div>
+                                <div class="td">Дата сделки</div>
+                                <div class="td">Компания</div>
+                                <div class="td">ИНН</div>
+                                <div class="td">Банк</div>
+                                <div class="td">Статус</div>
+                                <div class="td">Ставка</div>
                             </div>
                         </div>
-                        <div class="tr">
-                            <div class="td">320027 <span class="info">Открытие бизнеса</span></div>
-                            <div class="td">Михаил Букарев</div>
-                            <div class="td">15.11.2022</div>
-                            <div class="td">17.11.2022</div>
-                            <div class="td">ИП Букарев М.Б.</div>
-                            <div class="td">770203362786</div>
-                            <div class="td">
-                                <span class="bank"><img src="./assets/img/icons/bank3.svg" alt=""> Альфа Банк</span>
-                                <span class="bank"><img src="./assets/img/icons/bank4.svg" alt=""> Модульбанк</span>
+                        <div class="table_body">
+                            <div class="tr">
+                                <div class="td">320028 <span class="info">Открытие бизнеса</span></div>
+                                <div class="td">Евгений Перепелкин</div>
+                                <div class="td">16.11.2022</div>
+                                <div class="td">19.11.2022</div>
+                                <div class="td">ИП Машаков И.Г.</div>
+                                <div class="td">243904213224</div>
+                                <div class="td">
+                                    <span class="bank"><img src="./assets/img/icons/bank1.svg" alt=""> Открытие</span>
+                                    <span class="bank"><img src="./assets/img/icons/bank2.svg" alt=""> Тинькофф</span>
+                                </div>
+                                <div class="td">
+                                    <span class="status open">Открыт</span>
+                                    <span class="status open">Открыт</span>
+                                </div>
+                                <div class="td">
+                                    <span class="bet">2500 ₽</span>
+                                    <span class="bet">2500 ₽</span>
+                                </div>
                             </div>
-                            <div class="td">
-                                <span class="status wait">В обработке</span>
-                                <span class="status reject">Отказ</span>
+                            <div class="tr">
+                                <div class="td">320027 <span class="info">Открытие бизнеса</span></div>
+                                <div class="td">Михаил Букарев</div>
+                                <div class="td">15.11.2022</div>
+                                <div class="td">17.11.2022</div>
+                                <div class="td">ИП Букарев М.Б.</div>
+                                <div class="td">770203362786</div>
+                                <div class="td">
+                                    <span class="bank"><img src="./assets/img/icons/bank3.svg" alt=""> Альфа Банк</span>
+                                    <span class="bank"><img src="./assets/img/icons/bank4.svg" alt=""> Модульбанк</span>
+                                </div>
+                                <div class="td">
+                                    <span class="status wait">В обработке</span>
+                                    <span class="status reject">Отказ</span>
+                                </div>
+                                <div class="td">
+                                    <span class="bet">2500 ₽</span>
+                                    <span class="bet">0</span>
+                                </div>
                             </div>
-                            <div class="td">
-                                <span class="bet">2500 ₽</span>
-                                <span class="bet">0</span>
+                            <div class="tr">
+                                <div class="td">320020 <span class="info">Открытие бизнеса</span></div>
+                                <div class="td">Мария Иванова</div>
+                                <div class="td">14.11.2022</div>
+                                <div class="td">16.11.2022</div>
+                                <div class="td">ИП Иванова М.Ю.</div>
+                                <div class="td">772909013156</div>
+                                <div class="td">
+                                    <span class="bank"><img src="./assets/img/icons/bank3.svg" alt=""> Альфа Банк</span>
+                                    <span class="bank"><img src="./assets/img/icons/bank4.svg" alt=""> Модульбанк</span>
+                                    <span class="bank"><img src="./assets/img/icons/bank5.svg" alt=""> Уралсиб</span>
+                                    <span class="bank"><img src="./assets/img/icons/bank2.svg" alt=""> Тинькофф</span>
+                                    <span class="bank"><img src="./assets/img/icons/bank1.svg" alt=""> Открытие</span>
+                                </div>
+                                <div class="td">
+                                    <span class="status wait">В обработке</span>
+                                    <span class="status wait">В обработке</span>
+                                    <span class="status reject">Отказ</span>
+                                    <span class="status open">Открыт</span>
+                                    <span class="status open">Открыт</span>
+                                </div>
+                                <div class="td">
+                                    <span class="bet">2500 ₽</span>
+                                    <span class="bet">2500 ₽</span>
+                                    <span class="bet">0</span>
+                                    <span class="bet">2500 ₽</span>
+                                    <span class="bet">2500 ₽</span>
+                                </div>
+                            </div>
+                            <div class="tr">
+                                <div class="td">320020 <span class="info">Открытие бизнеса</span></div>
+                                <div class="td">Мария Иванова</div>
+                                <div class="td">14.11.2022</div>
+                                <div class="td">16.11.2022</div>
+                                <div class="td">ИП Иванова М.Ю.</div>
+                                <div class="td">772909013156</div>
+                                <div class="td">
+                                    <span class="bank"><img src="./assets/img/icons/bank3.svg" alt=""> Альфа Банк</span>
+                                    <span class="bank"><img src="./assets/img/icons/bank4.svg" alt=""> Модульбанк</span>
+                                    <span class="bank"><img src="./assets/img/icons/bank5.svg" alt=""> Уралсиб</span>
+                                    <span class="bank"><img src="./assets/img/icons/bank2.svg" alt=""> Тинькофф</span>
+                                    <span class="bank"><img src="./assets/img/icons/bank1.svg" alt=""> Открытие</span>
+                                </div>
+                                <div class="td">
+                                    <span class="status wait">В обработке</span>
+                                    <span class="status wait">В обработке</span>
+                                    <span class="status reject">Отказ</span>
+                                    <span class="status open">Открыт</span>
+                                    <span class="status open">Открыт</span>
+                                </div>
+                                <div class="td">
+                                    <span class="bet">2500 ₽</span>
+                                    <span class="bet">2500 ₽</span>
+                                    <span class="bet">0</span>
+                                    <span class="bet">2500 ₽</span>
+                                    <span class="bet">2500 ₽</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="tr">
-                            <div class="td">320020 <span class="info">Открытие бизнеса</span></div>
-                            <div class="td">Мария Иванова</div>
-                            <div class="td">14.11.2022</div>
-                            <div class="td">16.11.2022</div>
-                            <div class="td">ИП Иванова М.Ю.</div>
-                            <div class="td">772909013156</div>
-                            <div class="td">
-                                <span class="bank"><img src="./assets/img/icons/bank3.svg" alt=""> Альфа Банк</span>
-                                <span class="bank"><img src="./assets/img/icons/bank4.svg" alt=""> Модульбанк</span>
-                                <span class="bank"><img src="./assets/img/icons/bank5.svg" alt=""> Уралсиб</span>
-                                <span class="bank"><img src="./assets/img/icons/bank2.svg" alt=""> Тинькофф</span>
-                                <span class="bank"><img src="./assets/img/icons/bank1.svg" alt=""> Открытие</span>
-                            </div>
-                            <div class="td">
-                                <span class="status wait">В обработке</span>
-                                <span class="status wait">В обработке</span>
-                                <span class="status reject">Отказ</span>
-                                <span class="status open">Открыт</span>
-                                <span class="status open">Открыт</span>
-                            </div>
-                            <div class="td">
-                                <span class="bet">2500 ₽</span>
-                                <span class="bet">2500 ₽</span>
-                                <span class="bet">0</span>
-                                <span class="bet">2500 ₽</span>
-                                <span class="bet">2500 ₽</span>
-                            </div>
-                        </div>
-                        <div class="tr">
-                            <div class="td">320020 <span class="info">Открытие бизнеса</span></div>
-                            <div class="td">Мария Иванова</div>
-                            <div class="td">14.11.2022</div>
-                            <div class="td">16.11.2022</div>
-                            <div class="td">ИП Иванова М.Ю.</div>
-                            <div class="td">772909013156</div>
-                            <div class="td">
-                                <span class="bank"><img src="./assets/img/icons/bank3.svg" alt=""> Альфа Банк</span>
-                                <span class="bank"><img src="./assets/img/icons/bank4.svg" alt=""> Модульбанк</span>
-                                <span class="bank"><img src="./assets/img/icons/bank5.svg" alt=""> Уралсиб</span>
-                                <span class="bank"><img src="./assets/img/icons/bank2.svg" alt=""> Тинькофф</span>
-                                <span class="bank"><img src="./assets/img/icons/bank1.svg" alt=""> Открытие</span>
-                            </div>
-                            <div class="td">
-                                <span class="status wait">В обработке</span>
-                                <span class="status wait">В обработке</span>
-                                <span class="status reject">Отказ</span>
-                                <span class="status open">Открыт</span>
-                                <span class="status open">Открыт</span>
-                            </div>
-                            <div class="td">
-                                <span class="bet">2500 ₽</span>
-                                <span class="bet">2500 ₽</span>
-                                <span class="bet">0</span>
-                                <span class="bet">2500 ₽</span>
-                                <span class="bet">2500 ₽</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>            
+                    </div>  
+                </div>          
                 <div class="table_pagi">
                     <div class="table_pagi_counter">
                         3 из 200 заявок
@@ -380,6 +434,7 @@
         </footer>        
         <!-- Подвал начиная с планшета начало -->
     </div>
+    <script src="./assets/lib/select/script.js"></script>
     <script src="./assets/js/script.js"></script>
  </body>
  </html>

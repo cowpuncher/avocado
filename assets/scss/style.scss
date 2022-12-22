@@ -42,21 +42,31 @@
     align-items: flex-start;
     flex-direction: column;
 }
+@mixin for-flex-wrap {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
 @mixin for-scrollbar {
     &::-webkit-scrollbar {
         width: 5px;               /* ширина scrollbar */
+        height: 5px;
     }
     &::-ms-scrollbar {
         width: 5px;               /* ширина scrollbar */
+        height: 5px;
     }
     &::-ms-scrollbar {
         width: 5px;               /* ширина scrollbar */
+        height: 5px;
     }
     &::-o-scrollbar {
         width: 5px;               /* ширина scrollbar */
+        height: 5px;
     }    
     &::-moz-scrollbar {
         width: 5px;               /* ширина scrollbar */
+        height: 5px;
     }    
     &::-webkit-scrollbar-track {
         background: rgba(230, 234, 238, 0.24);   /* цвет дорожки */
@@ -215,6 +225,7 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
 }
 /*ANCHOR  Элементы и стили */
 /*ANCHOR -- Контактов*/
@@ -237,12 +248,14 @@ h1 {
 .wrap {
     &_popupblock {
         position: relative;
-        &.active {
-            .popupblock {
-                display: flex;
+        span {
+            &.active {
+                ~ .popupblock {
+                    @include for-flex-column-start;
+                }
             }
         }
-        .popupblock {            
+        .popupblock {         
             a {
                 @include for-flex-center;
                 width: 100%;
@@ -263,6 +276,7 @@ h1 {
     display: none;
     position: absolute;
     top: 110%;
+    z-index: 3;   
     background: #FFFFFF;
     box-shadow: 0px 4px 16px rgb(9 60 102 / 10%);
     border-radius: 8px;
@@ -293,9 +307,8 @@ h1 {
     }
 }
 /*ANCHOR -- Форм*/
-label {
-    @include for-flex-just-center;
-    height: 42px;
+.label {
+    @include for-flex-center;
     border-radius: var(--radius-1);
     border: 1px solid var(--color-5);
     input {
@@ -308,9 +321,10 @@ label {
 /*ANCHOR -- Уведомления*/
 .notif {
     ~ .popupblock {
-        max-height: 700px;
+        max-height: 73vh;
         overflow: hidden;
         width: 375px;
+        padding: 20px 17px 20px 12px;
         a {
             display: inline-block;
             padding: 0;
@@ -318,6 +332,7 @@ label {
             width: auto;
             margin: 0;
             color: var(--color-4);
+            background: transparent;
             &:hover {
                 background: transparent;
             }
@@ -346,18 +361,70 @@ label {
         overflow: auto;
         &_item {
             @include for-flex-just-between-start;
+            padding: 5px 8px;
+            border-radius: var(--radius-3);
+            position: relative;
+            &:hover {
+                background: var(--color-3);
+            }
+            &:not(:last-child) {
+                margin-bottom: 35px;
+                &::after {
+                    content: '';
+                    width: 100%;
+                    height: 1px;
+                    background: var(--color-5);
+                    position: absolute;
+                    bottom: -15px;
+                    left: 0;
+                }
+            }
+            &__new {
+                .notif_list_icon {
+                    &::after {
+                        content: '';
+                        width: 9px;
+                        height: 9px;
+                        border-radius: 50%;
+                        background: var(--color-11);
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        border: 2px solid var(--color-3);
+                    }
+                }
+            }
         }
         &_block {
             font-size: 13px;
+            width: 82%;
             &_top {
                 @include for-flex-just-between;
                 width: 100%;
                 color: var(--color-8);
+                margin-bottom: 5px;
             }
             &_body {
+                position: relative;
                 &__title {
                     font-weight: 600;
                     font-size: 15px;
+                }
+                &__more {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    cursor: pointer;
+                    background: #fff;
+                    padding-left: 15px;
+                    &:hover {
+                        background: #fff;
+                    }
+                }
+                &.open {                    
+                    a {
+                        position: static;
+                    }
                 }
             }
         }
@@ -367,13 +434,14 @@ label {
             height: 44px;
             border-radius: var(--radius-3);
             background: var(--color-3);
+            position: relative;
         }
     }
 }
 /*ANCHOR  Компонентные блоки */
 /*ANCHOR -- Фильтры*/
 .filter {
-    margin-bottom: 17px;
+    margin-bottom: 7px;
     &_title {
         font-weight: 600;
         font-size: 24px;
@@ -381,27 +449,97 @@ label {
         margin-bottom: 16px;
     }
     &_form {
-        @include for-flex-start;
+        @include for-flex-wrap;
+        input {
+            padding-right: 17px;
+            &[type=date] {
+                position: relative;
+                z-index: 1;
+                &::-webkit-calendar-picker-indicator {
+                    opacity: 0;
+                    position: relative;
+                    z-index: 1;
+                    cursor: pointer;
+                }
+            }
+            &:not([type=text])::after {
+                content: '';
+                display: block;
+                background: url(../img/icons/arrow-down.svg) no-repeat 50% 50% / contain;
+                width: 10px;
+                height: 5px;
+                position: absolute;                
+                right: 15px;
+            }
+        }
         .label {
             position: relative;  
             max-width: 238px;
+            min-width: 165px;
             margin-right: 15px;
+            margin-bottom: 10px;
+            height: 42px;
             .input {
                 font-size: 17px;
-                padding-left: 43px;     
-                padding-top: 3px;     
+                padding-left: 8px;   
+                /*А так убрать*/
             }
-            &.search::before {
-                content: '';
-                background: url(../img/icons/search.svg) no-repeat 50% 50% / contain;
-                display: block;
-                height: 21px;
-                width: 21px;
-                position: absolute;
-                left: 10px;
-                top: 0;
-                bottom: 0;
-                transform: translate(0, 50%);
+            &.icon {
+                .input {
+                    padding-left: 43px;    
+                }
+                &::before {
+                    content: '';
+                    display: block;
+                    height: 21px;
+                    width: 21px;
+                    position: absolute;
+                    left: 10px;
+                    top: 0;
+                    bottom: 0;
+                    transform: translate(0, 50%);
+                }
+                
+                &.doc::before {
+                    background: url(../img/icons/document.svg) no-repeat 50% 50% / contain;
+                }            
+                &.search::before {
+                    background: url(../img/icons/search.svg) no-repeat 50% 50% / contain;
+                }        
+                &.calendar::before {
+                    background: url(../img/icons/calendar.svg) no-repeat 50% 50% / contain;
+                    z-index: 2;
+                }
+            }
+            &.select {
+                height: 44px;
+                &:after {    
+                    content: '';    
+                    background: url(../img/icons/arrow-down.svg) no-repeat 50% 50% / contain;
+                    width: 10px;
+                    height: 5px;
+                    position: absolute;
+                    right: 15px;
+                }
+            }
+        }
+        &_clear {
+            @include for-flex-just-center;
+            height: 44px;
+            width: 170px;
+            border-radius: 12px;
+            color: var(--color-8);
+            font-size: 16px;
+            font-weight: 500;
+            img {
+                margin-left: 13px;
+            }
+            &:hover {
+                background: #ffe5ea66;
+                color: var(--color-11);
+                img {
+                    filter: invert(13%) sepia(53%) saturate(52000%) hue-rotate(766deg) brightness(170%) contrast(113%);
+                }
             }
         }
     }
@@ -409,10 +547,14 @@ label {
 /*ANCHOR -- Таблица*/
 .table {
     min-width: 1535px;
-
+    width: 100%;
     &_section {
         @include for-flex-column-start;
-        flex: 1;
+        width: 100%;
+    }
+    &_wrap {
+        overflow: auto;
+        width: 100%;
     }
     &_head {
         .tr {        
@@ -426,7 +568,6 @@ label {
         }
     }
     &_body {
-        max-height: 380px;
         overflow: auto;
         .tr {
             @include for-flex-start;
@@ -528,9 +669,8 @@ label {
     &_pagi {
         @include for-flex-just-between;
         width: 100%;
-        margin-top: auto;
+        margin-top: 40px;
         position: relative;
-        padding-left: 18px;
         &_links {
             @include for-flex-just-center;
             margin: -4px;
@@ -563,12 +703,13 @@ label {
 /* ANCHOR Сайдбар он же header */
 .header {
     @include for-flex-column-start;
+    // max-width: 316px;
     max-width: 316px;
     width: 100%;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    height: 100vh;
+    height: auto;
     background: var(--color-0);
     padding: 32px 15px 50px 25px;
     &_top {      
@@ -624,10 +765,9 @@ label {
 }
 .body {
     @include for-flex-column-start;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-        flex: 1;
     padding: 35px 40px 50px 28px;
+    width: 100%;
+    min-width: 675px;
     // ANCHOR Топ в теле страницы
     &_top {
         @include for-flex-just-between-start;

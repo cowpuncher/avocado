@@ -32,18 +32,23 @@ html, body, div, p, a, span, ul, ol, li, main, header, footer, section, h1, h2, 
 }
 html::-webkit-scrollbar, body::-webkit-scrollbar, div::-webkit-scrollbar, p::-webkit-scrollbar, a::-webkit-scrollbar, span::-webkit-scrollbar, ul::-webkit-scrollbar, ol::-webkit-scrollbar, li::-webkit-scrollbar, main::-webkit-scrollbar, header::-webkit-scrollbar, footer::-webkit-scrollbar, section::-webkit-scrollbar, h1::-webkit-scrollbar, h2::-webkit-scrollbar, h3::-webkit-scrollbar, h4::-webkit-scrollbar, h5::-webkit-scrollbar, h6::-webkit-scrollbar, input::-webkit-scrollbar, textarea::-webkit-scrollbar, button::-webkit-scrollbar, form::-webkit-scrollbar, section::-webkit-scrollbar, main::-webkit-scrollbar, header::-webkit-scrollbar, footer::-webkit-scrollbar, nav::-webkit-scrollbar {
   width: 5px; /* ширина scrollbar */
+  height: 5px;
 }
 html::-ms-scrollbar, body::-ms-scrollbar, div::-ms-scrollbar, p::-ms-scrollbar, a::-ms-scrollbar, span::-ms-scrollbar, ul::-ms-scrollbar, ol::-ms-scrollbar, li::-ms-scrollbar, main::-ms-scrollbar, header::-ms-scrollbar, footer::-ms-scrollbar, section::-ms-scrollbar, h1::-ms-scrollbar, h2::-ms-scrollbar, h3::-ms-scrollbar, h4::-ms-scrollbar, h5::-ms-scrollbar, h6::-ms-scrollbar, input::-ms-scrollbar, textarea::-ms-scrollbar, button::-ms-scrollbar, form::-ms-scrollbar, section::-ms-scrollbar, main::-ms-scrollbar, header::-ms-scrollbar, footer::-ms-scrollbar, nav::-ms-scrollbar {
   width: 5px; /* ширина scrollbar */
+  height: 5px;
 }
 html::-ms-scrollbar, body::-ms-scrollbar, div::-ms-scrollbar, p::-ms-scrollbar, a::-ms-scrollbar, span::-ms-scrollbar, ul::-ms-scrollbar, ol::-ms-scrollbar, li::-ms-scrollbar, main::-ms-scrollbar, header::-ms-scrollbar, footer::-ms-scrollbar, section::-ms-scrollbar, h1::-ms-scrollbar, h2::-ms-scrollbar, h3::-ms-scrollbar, h4::-ms-scrollbar, h5::-ms-scrollbar, h6::-ms-scrollbar, input::-ms-scrollbar, textarea::-ms-scrollbar, button::-ms-scrollbar, form::-ms-scrollbar, section::-ms-scrollbar, main::-ms-scrollbar, header::-ms-scrollbar, footer::-ms-scrollbar, nav::-ms-scrollbar {
   width: 5px; /* ширина scrollbar */
+  height: 5px;
 }
 html::-o-scrollbar, body::-o-scrollbar, div::-o-scrollbar, p::-o-scrollbar, a::-o-scrollbar, span::-o-scrollbar, ul::-o-scrollbar, ol::-o-scrollbar, li::-o-scrollbar, main::-o-scrollbar, header::-o-scrollbar, footer::-o-scrollbar, section::-o-scrollbar, h1::-o-scrollbar, h2::-o-scrollbar, h3::-o-scrollbar, h4::-o-scrollbar, h5::-o-scrollbar, h6::-o-scrollbar, input::-o-scrollbar, textarea::-o-scrollbar, button::-o-scrollbar, form::-o-scrollbar, section::-o-scrollbar, main::-o-scrollbar, header::-o-scrollbar, footer::-o-scrollbar, nav::-o-scrollbar {
   width: 5px; /* ширина scrollbar */
+  height: 5px;
 }
 html::-moz-scrollbar, body::-moz-scrollbar, div::-moz-scrollbar, p::-moz-scrollbar, a::-moz-scrollbar, span::-moz-scrollbar, ul::-moz-scrollbar, ol::-moz-scrollbar, li::-moz-scrollbar, main::-moz-scrollbar, header::-moz-scrollbar, footer::-moz-scrollbar, section::-moz-scrollbar, h1::-moz-scrollbar, h2::-moz-scrollbar, h3::-moz-scrollbar, h4::-moz-scrollbar, h5::-moz-scrollbar, h6::-moz-scrollbar, input::-moz-scrollbar, textarea::-moz-scrollbar, button::-moz-scrollbar, form::-moz-scrollbar, section::-moz-scrollbar, main::-moz-scrollbar, header::-moz-scrollbar, footer::-moz-scrollbar, nav::-moz-scrollbar {
   width: 5px; /* ширина scrollbar */
+  height: 5px;
 }
 html::-webkit-scrollbar-track, body::-webkit-scrollbar-track, div::-webkit-scrollbar-track, p::-webkit-scrollbar-track, a::-webkit-scrollbar-track, span::-webkit-scrollbar-track, ul::-webkit-scrollbar-track, ol::-webkit-scrollbar-track, li::-webkit-scrollbar-track, main::-webkit-scrollbar-track, header::-webkit-scrollbar-track, footer::-webkit-scrollbar-track, section::-webkit-scrollbar-track, h1::-webkit-scrollbar-track, h2::-webkit-scrollbar-track, h3::-webkit-scrollbar-track, h4::-webkit-scrollbar-track, h5::-webkit-scrollbar-track, h6::-webkit-scrollbar-track, input::-webkit-scrollbar-track, textarea::-webkit-scrollbar-track, button::-webkit-scrollbar-track, form::-webkit-scrollbar-track, section::-webkit-scrollbar-track, main::-webkit-scrollbar-track, header::-webkit-scrollbar-track, footer::-webkit-scrollbar-track, nav::-webkit-scrollbar-track {
   background: rgba(230, 234, 238, 0.24); /* цвет дорожки */
@@ -168,6 +173,7 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
 }
 
 /*ANCHOR  Элементы и стили */
@@ -194,10 +200,17 @@ h1 {
 .wrap_popupblock {
   position: relative;
 }
-.wrap_popupblock.active .popupblock {
+.wrap_popupblock span.active ~ .popupblock {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .wrap_popupblock .popupblock a {
   display: -webkit-box;
@@ -222,6 +235,7 @@ h1 {
   display: none;
   position: absolute;
   top: 110%;
+  z-index: 3;
   background: #FFFFFF;
   -webkit-box-shadow: 0px 4px 16px rgba(9, 60, 102, 0.1);
           box-shadow: 0px 4px 16px rgba(9, 60, 102, 0.1);
@@ -254,21 +268,17 @@ h1 {
 }
 
 /*ANCHOR -- Форм*/
-label {
+.label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 42px;
   border-radius: var(--radius-1);
   border: 1px solid var(--color-5);
 }
-label input {
+.label input {
   font-weight: 500;
   outline: none;
   border: 1px solid transparent;
@@ -277,9 +287,10 @@ label input {
 
 /*ANCHOR -- Уведомления*/
 .notif ~ .popupblock {
-  max-height: 700px;
+  max-height: 73vh;
   overflow: hidden;
   width: 375px;
+  padding: 20px 17px 20px 12px;
 }
 .notif ~ .popupblock a {
   display: inline-block;
@@ -288,6 +299,7 @@ label input {
   width: auto;
   margin: 0;
   color: var(--color-4);
+  background: transparent;
 }
 .notif ~ .popupblock a:hover {
   background: transparent;
@@ -330,9 +342,39 @@ label input {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 5px 8px;
+  border-radius: var(--radius-3);
+  position: relative;
+}
+.notif_list_item:hover {
+  background: var(--color-3);
+}
+.notif_list_item:not(:last-child) {
+  margin-bottom: 35px;
+}
+.notif_list_item:not(:last-child)::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: var(--color-5);
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+}
+.notif_list_item__new .notif_list_icon::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-11);
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 2px solid var(--color-3);
 }
 .notif_list_block {
   font-size: 13px;
+  width: 82%;
 }
 .notif_list_block_top {
   display: -webkit-box;
@@ -346,10 +388,28 @@ label input {
           justify-content: space-between;
   width: 100%;
   color: var(--color-8);
+  margin-bottom: 5px;
+}
+.notif_list_block_body {
+  position: relative;
 }
 .notif_list_block_body__title {
   font-weight: 600;
   font-size: 15px;
+}
+.notif_list_block_body__more {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  background: #fff;
+  padding-left: 15px;
+}
+.notif_list_block_body__more:hover {
+  background: #fff;
+}
+.notif_list_block_body.open a {
+  position: static;
 }
 .notif_list_icon {
   display: -webkit-box;
@@ -365,12 +425,13 @@ label input {
   height: 44px;
   border-radius: var(--radius-3);
   background: var(--color-3);
+  position: relative;
 }
 
 /*ANCHOR  Компонентные блоки */
 /*ANCHOR -- Фильтры*/
 .filter {
-  margin-bottom: 17px;
+  margin-bottom: 7px;
 }
 .filter_title {
   font-weight: 600;
@@ -385,20 +446,49 @@ label input {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.filter_form input {
+  padding-right: 17px;
+}
+.filter_form input[type=date] {
+  position: relative;
+  z-index: 1;
+}
+.filter_form input[type=date]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+.filter_form input:not([type=text])::after {
+  content: "";
+  display: block;
+  background: url(../img/icons/arrow-down.svg) no-repeat 50% 50%/contain;
+  width: 10px;
+  height: 5px;
+  position: absolute;
+  right: 15px;
 }
 .filter_form .label {
   position: relative;
   max-width: 238px;
+  min-width: 165px;
   margin-right: 15px;
+  margin-bottom: 10px;
+  height: 42px;
 }
 .filter_form .label .input {
   font-size: 17px;
-  padding-left: 43px;
-  padding-top: 3px;
+  padding-left: 8px;
+  /*А так убрать*/
 }
-.filter_form .label.search::before {
+.filter_form .label.icon .input {
+  padding-left: 43px;
+}
+.filter_form .label.icon::before {
   content: "";
-  background: url(../img/icons/search.svg) no-repeat 50% 50%/contain;
   display: block;
   height: 21px;
   width: 21px;
@@ -409,10 +499,60 @@ label input {
   -webkit-transform: translate(0, 50%);
           transform: translate(0, 50%);
 }
+.filter_form .label.icon.doc::before {
+  background: url(../img/icons/document.svg) no-repeat 50% 50%/contain;
+}
+.filter_form .label.icon.search::before {
+  background: url(../img/icons/search.svg) no-repeat 50% 50%/contain;
+}
+.filter_form .label.icon.calendar::before {
+  background: url(../img/icons/calendar.svg) no-repeat 50% 50%/contain;
+  z-index: 2;
+}
+.filter_form .label.select {
+  height: 44px;
+}
+.filter_form .label.select:after {
+  content: "";
+  background: url(../img/icons/arrow-down.svg) no-repeat 50% 50%/contain;
+  width: 10px;
+  height: 5px;
+  position: absolute;
+  right: 15px;
+}
+.filter_form_clear {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 44px;
+  width: 170px;
+  border-radius: 12px;
+  color: var(--color-8);
+  font-size: 16px;
+  font-weight: 500;
+}
+.filter_form_clear img {
+  margin-left: 13px;
+}
+.filter_form_clear:hover {
+  background: rgba(255, 229, 234, 0.4);
+  color: var(--color-11);
+}
+.filter_form_clear:hover img {
+  -webkit-filter: invert(13%) sepia(53%) saturate(52000%) hue-rotate(766deg) brightness(170%) contrast(113%);
+          filter: invert(13%) sepia(53%) saturate(52000%) hue-rotate(766deg) brightness(170%) contrast(113%);
+}
 
 /*ANCHOR -- Таблица*/
 .table {
   min-width: 1535px;
+  width: 100%;
   /*ANCHOR ---- Пагинация*/
 }
 .table_section {
@@ -426,9 +566,11 @@ label input {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  width: 100%;
+}
+.table_wrap {
+  overflow: auto;
+  width: 100%;
 }
 .table_head .tr {
   display: -webkit-box;
@@ -445,7 +587,6 @@ label input {
   color: var(--color-1);
 }
 .table_body {
-  max-height: 380px;
   overflow: auto;
 }
 .table_body .tr {
@@ -579,9 +720,8 @@ label input {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
-  margin-top: auto;
+  margin-top: 40px;
   position: relative;
-  padding-left: 18px;
 }
 .table_pagi_links {
   display: -webkit-box;
@@ -642,7 +782,7 @@ label input {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  height: 100vh;
+  height: auto;
   background: var(--color-0);
   padding: 32px 15px 50px 25px;
 }
@@ -717,10 +857,9 @@ label input {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   padding: 35px 40px 50px 28px;
+  width: 100%;
+  min-width: 675px;
 }
 .body_top {
   display: -webkit-box;
