@@ -42,6 +42,11 @@
     align-items: flex-start;
     flex-direction: column;
 }
+@mixin for-flex-column-center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 @mixin for-flex-wrap {
     display: flex;
     align-items: flex-start;
@@ -123,6 +128,10 @@
   --color-12: #ECF9F1;
   --color-13:#FFF5E5;
   --color-14:#FFE5EA;
+  --color-15:#F5F5F5;
+
+  
+  --shadow-popup: 0px 4px 16px rgb(9 60 102 / 10%);
 
   --fontfamily-main: "Manrope", sans-serif;
 
@@ -139,6 +148,7 @@ html, body, div, p, a, span, ul, ol, li, main, header, footer, section, h1, h2, 
             box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: var(--fontfamily-main);
     @include for-scrollbar;
 }
 
@@ -156,7 +166,9 @@ a {
   text-decoration: none;
   color: var(--color-1);
 }
-
+button {
+    cursor:  pointer;
+}
 h1 {
     font-weight: 700;
     font-size: 40px;
@@ -226,10 +238,19 @@ h1 {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.section_title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 15px;
 }
 /*ANCHOR  Элементы и стили */
 /*ANCHOR -- Контактов*/
 .contacts {
+    @include for-flex-column-start;
     &_link {
         padding: 0 0 0 15px;
         @include for-flex-center;
@@ -238,10 +259,949 @@ h1 {
         }
     }
 }
+/*ANCHOR -- Бургер */
+.burger {
+    &_filter {
+        border-radius: var(--radius-1);
+        height: 44px;
+        width: 44px;
+        background: var(--color-0);
+        display: none;
+        position: absolute;
+        right: 0;
+        bottom: 10px;
+    }
+}
 /*ANCHOR -- Хлебных крошек*/
 .breadcrumbs {
     span {
         margin: 0 6px;
+    }
+}
+
+/*ANCHOR -- Кнопок*/
+@keyframes rotateButton {
+    from {
+        transform: rotate(0deg);
+    }
+    
+    to {
+        transform: rotate(360deg);
+    }
+}
+.btn {
+    @include for-flex-just-center;
+    background: transparent;
+    border: 0;
+    outline: none;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 10px;
+    border: 1px solid var(--color-4);
+    border-radius: var(--radius-2);
+    margin-top: 10px;
+    cursor: pointer;
+    &.wait {
+        img {
+            animation: rotateButton  info5s infinite ease-in-out;
+            margin-right: 10px;
+        }
+    }
+    &_light {
+        font-size: 15px;
+        &:hover {
+            background: var(--color-2);
+        }
+    }
+    &_fill {
+        background: var(--color-0)
+    }
+}
+/*ANCHOR -- Формы*/
+label {
+    @include for-flex-column-start;
+    width: 100%;
+    margin-bottom: 20px;
+    span {
+        font-weight: 600;
+        font-size: 15px;
+        color: var(--color-1);
+    }
+    input:not([type=file]),
+    textarea {
+        background: var(--color-3);
+        border-radius: var(--radius-1);
+        padding: 12px;
+        border: 0;
+        outline: none;
+        width: 100%;
+        &::placeholder {
+            color: var(--color-8);
+        }
+    }
+    input {
+        height: 44px;
+        &.error {
+            background: var(--color-14);                    
+        }
+    } 
+    .error_text{
+        color: var(--color-11);
+        font-size: 14px;
+        font-weight: 400;
+    }
+    textarea {
+        height: 88px;
+        resize: none;
+    }
+}
+.label {
+    @include for-flex-center;
+    border-radius: var(--radius-1);
+    border: 1px solid var(--color-5);
+    input {
+        font-weight: 500;
+        outline: none;
+        border: 1px solid transparent;
+        width: 100%;
+    }
+}
+.search {
+    width: 100%;
+    &_form {
+        @include for-flex-center;
+        .label {
+            position: relative;  
+            max-width: 375px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            height: 42px;
+            .input {
+                font-size: 17px;
+                padding-left: 8px;   
+                background: transparent;
+            }
+            &.icon {
+                .input {
+                    padding-left: 43px;    
+                }
+                &::before {
+                    content: '';
+                    display: block;
+                    height: 21px;
+                    width: 21px;
+                    position: absolute;
+                    left: 10px;
+                    top: 0;
+                    bottom: 0;
+                    transform: translate(0, 50%);
+                }
+                
+                &.doc::before {
+                    background: url(../img/icons/document.svg) no-repeat 50% 50% / contain;
+                }            
+                &.search::before {
+                    background: url(../img/icons/search.svg) no-repeat 50% 50% / contain;
+                }        
+                &.calendar::before {
+                    background: url(../img/icons/calendar.svg) no-repeat 50% 50% / contain;
+                    z-index: 2;
+                }
+            }
+        }
+        &_button {
+            background: #E3FE75;
+            border-radius: 12px;
+            height: 44px;
+            width: 44px;
+            border: 0;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    }
+}
+.policy {
+    position: relative;
+    padding-left: 32px;
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    p {
+        width: 90%;
+        &::before,
+        &::after {
+            content: '';
+            @include for-flex-just-center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 20px;
+            width: 20px;
+            border-radius: 4px;
+            border: 1px solid var(--color-5);
+        }
+    }
+    input {
+        display: none;
+        &:checked {
+            & ~ p::after {
+                content: url(../img/icons/checked.svg);
+                background: var(--color-0);
+            } 
+        }
+    }
+}
+.personal {
+    &_add {
+        @include for-flex-center;
+        order: -1;
+        margin-right: 7px;
+        background: var(--color-0);
+        border-radius: var(--radius-1);
+        padding: 17px;
+        height: 48px;
+        min-width: 48px;
+        font-weight: 600;
+        &__text {
+            margin-left: 10px;
+        }
+    }
+}
+/*ANCHOR -- Аккаунт */
+.account {
+    @include for-flex-column-start;
+    width: 100%;
+}
+/*ANCHOR -- Меню */
+.popup {
+    &_fullpage {
+        overflow: auto;
+        display: none;
+    }
+}
+/*ANCHOR -- Тултипс */
+.tooltips {
+    position: relative;
+    &_body {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #fff;
+        border-radius: var(--radius-3);
+        box-shadow: var(--shadow-popup);
+        width: 363px;
+        z-index: 44;
+        padding: 12px;
+        max-height: 350px;
+        overflow: auto;
+    }
+    &:hover {
+        .tooltips_body {
+            display: block;
+        }
+    }
+}
+
+/*ANCHOR -- Реферальная */
+.referral {
+    margin-bottom: 35px;
+    &_block {
+        max-width: 540px;
+        padding: 20px;
+        border-radius: var(--radius-1);
+        border: 1px solid var(--color-5);
+        h6 {
+            font-weight: 600;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        ol {
+            margin-bottom: 10px;
+            li {
+                font-weight: 500;
+                font-size: 15px;
+            }
+        }
+        p {
+            font-weight: 500;
+            font-size: 15px;
+            color: #858585;
+            margin-bottom: 10px;
+            a {
+                color: var(--color-4);
+            }
+        }
+        button {
+            @include for-flex-just-center;
+            width: 218px;
+            height: 40px;
+            border: 0;
+            font-weight: 600;
+            font-size: 17px;
+            background: var(--color-0);
+            border-radius: var(--radius-1);
+
+            img {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+/*ANCHOR  Компонентные блоки */
+/*ANCHOR -- Фильтры*/
+.filter {
+    margin-bottom: 12px;
+    width: 100%;
+    position: relative;
+    &_title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 16px;
+    }
+    &_form {
+        @include for-flex-wrap;
+        input {
+            padding-right: 17px;
+            background: transparent;
+            &[type=date] {
+                position: relative;
+                z-index: 1;
+                &::-webkit-calendar-picker-indicator {
+                    opacity: 0;
+                    position: relative;
+                    z-index: 1;
+                    cursor: pointer;
+                }
+            }
+            &:not([type=text])::after {
+                content: '';
+                display: block;
+                background: url(../img/icons/arrow-down.svg) no-repeat 50% 50% / contain;
+                width: 10px;
+                height: 5px;
+                position: absolute;                
+                right: 15px;
+            }
+        }
+        .label {
+            position: relative;  
+            max-width: 238px;
+            min-width: 165px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            height: 42px;
+            .input {
+                font-size: 17px;
+                padding: 0 0 0 8px;  
+                background: transparent;
+            }
+            &.icon {
+                .input {
+                    padding-left: 43px;    
+                }
+                &::before {
+                    content: '';
+                    display: block;
+                    height: 21px;
+                    width: 21px;
+                    position: absolute;
+                    left: 10px;
+                    top: 0;
+                    bottom: 0;
+                    transform: translate(0, 50%);
+                }
+                
+                &.doc::before {
+                    background: url(../img/icons/document.svg) no-repeat 50% 50% / contain;
+                }            
+                &.search::before {
+                    background: url(../img/icons/search.svg) no-repeat 50% 50% / contain;
+                }        
+                &.calendar::before {
+                    background: url(../img/icons/calendar.svg) no-repeat 50% 50% / contain;
+                    z-index: 2;
+                }
+            }
+            &.select {
+                height: 44px;
+                &:after {    
+                    content: '';    
+                    background: url(../img/icons/arrow-down.svg) no-repeat 50% 50% / contain;
+                    width: 10px;
+                    height: 5px;
+                    position: absolute;
+                    right: 15px;
+                }
+            }
+        }
+        &_lable {
+            &__name {
+                display: none;
+            }
+        }
+        &_dates {
+            @include for-flex-center;
+            span {                
+                margin-right: 15px;
+                margin-bottom: 10px;
+            }
+        }
+        &_clear {
+            @include for-flex-just-center;
+            height: 44px;
+            width: 180px;
+            border-radius: 12px;
+            color: var(--color-8);
+            font-size: 16px;
+            font-weight: 500;
+            img {
+                margin-left: 7px;
+            }
+            &:hover {
+                background: #ffe5ea66;
+                color: var(--color-11);
+                img {
+                    filter: invert(13%) sepia(53%) saturate(52000%) hue-rotate(766deg) brightness(170%) contrast(113%);
+                }
+            }
+        }
+        &_button {
+            display: none;
+        }
+    }
+    &_small {
+        width: 100%;
+        &_form {        
+            @include for-flex-wrap;
+            &_dates {
+                @include for-flex-center;
+            }
+            .label {
+                position: relative;  
+                max-width: 375px;
+                min-width: 165px;
+                margin-right: 15px;
+                margin-bottom: 10px;
+                height: 42px;
+                .input {
+                    font-size: 17px;
+                    padding-left: 8px;   
+                    background: transparent;
+                }
+                &.icon {
+                    .input {
+                        padding-left: 43px;    
+                    }
+                    &::before {
+                        content: '';
+                        display: block;
+                        height: 21px;
+                        width: 21px;
+                        position: absolute;
+                        left: 10px;
+                        top: 0;
+                        bottom: 0;
+                        transform: translate(0, 50%);
+                    }
+                    
+                    &.doc::before {
+                        background: url(../img/icons/document.svg) no-repeat 50% 50% / contain;
+                    }            
+                    &.search::before {
+                        background: url(../img/icons/search.svg) no-repeat 50% 50% / contain;
+                    }        
+                    &.calendar::before {
+                        background: url(../img/icons/calendar.svg) no-repeat 50% 50% / contain;
+                        z-index: 2;
+                    }
+                }
+                &.select {
+                    height: 44px;
+                    &:after {    
+                        content: '';    
+                        background: url(../img/icons/arrow-down.svg) no-repeat 50% 50% / contain;
+                        width: 10px;
+                        height: 5px;
+                        position: absolute;
+                        right: 15px;
+                    }
+                }
+            }
+            &_dates {
+                @include for-flex-center;
+                span {                
+                    margin-right: 15px;
+                    margin-bottom: 10px;
+                }
+            }
+            &_button {
+                margin-bottom: 10px;
+                width: 44px;
+                height: 44px;
+                background: #E3FE75;
+                border: 0;
+                border-radius: 12px;
+                margin-right: 15px;
+                cursor: pointer;
+            }
+            &_clear {
+                @include for-flex-just-center;
+                height: 44px;
+                width: 180px;
+                border-radius: 12px;
+                color: var(--color-8);
+                font-size: 16px;
+                font-weight: 500;
+                margin-bottom: 10px;
+                img {
+                    margin-left: 13px;
+                }
+                &:hover {
+                    background: #ffe5ea66;
+                    color: var(--color-11);
+                    img {
+                        filter: invert(13%) sepia(53%) saturate(52000%) hue-rotate(766deg) brightness(170%) contrast(113%);
+                    }
+                }
+            }
+        }
+    }
+}
+/*ANCHOR -- Таблица*/
+.table {
+    min-width: 1000px;
+    width: 100%;
+    &_section {
+        @include for-flex-column-start;
+        width: 100%;
+        height: 100%;
+    }
+    &_wrap {
+        overflow: auto;
+        width: 100%;
+        height: 100%;
+    }
+    &_head {
+        .tr {        
+            @include for-flex-center;
+            background: var(--color-2);
+            border-radius: var(--radius-1);
+            padding: 16px;
+            font-size: var(--fontsize-main);
+            font-weight: 600;
+            color: var(--color-1);
+        }
+    }
+    &_body {
+        .tr {
+            @include for-flex-start;
+            padding: 16px;
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--color-6);
+            &.nobody  {
+                padding-left: 0;
+                padding-right: 0;
+                .td {                
+                    border-radius: var(--radius-3);
+                    width: 100%;
+                    background: var(--color-3);
+                    padding: 8px;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                }
+            }
+            .td {
+                @include for-flex-column-start;
+                span {
+                    display: inline-block;
+                    padding: 0 10px;
+                    height: 28px;
+                    font-size: 13px;
+                    font-weight: 600;
+                    &.bank {
+                        @include for-flex-inline-center;
+                        border-radius: var(--radius-4);
+                        background: var(--color-7);
+                        img {
+                            margin-right: 3px;
+                        }
+                    }
+                    &.bet {
+                        font-size: 15px;
+                        padding: 0;
+                    }
+                    &.info {
+                        padding: 0;
+                        margin: 0;
+                        font-size: 15px;
+                        font-weight: 500;
+                        color: var(--color-8);
+                    }
+                    &.status {
+                        @include for-flex-just-center;
+                        border-radius: var(--radius-4);
+                        &.open {
+                            background: var(--color-12);
+                            color: var(--color-9);
+                        }
+                        &.wait {
+                            background: var(--color-13);
+                            color: var(--color-10);
+                        }
+                        &.reject {
+                            background: var(--color-14);
+                            color: var(--color-11);
+                        }
+                    }
+                    &:not(:last-child) {
+                        margin-bottom: 6px;
+                    }
+                }
+                a {
+                    font-weight: 600;
+                    color: var(--color-4);
+                }
+                input {
+                    border: 1px solid #E6EAEE;
+                    border-radius: 6px;
+                    height: 36px;
+                    padding: 0 5px;
+                }
+                .select {
+                    width: 150px;
+                    position: relative;
+                    &-selected {
+                        border: 1px solid #E6EAEE;
+                        border-radius: 6px;
+                    }
+                    &::after {
+                        content: url(../img/icons/arrow-down.svg);
+                        position: absolute;
+                        right: 10px;
+                        top: 4px;
+                    }
+                }
+            }
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--color-5);
+            }
+        }
+    } 
+    .td {
+        width: 200px;
+    }
+    &_app {        
+        min-width: 1535px;
+        .td:nth-child(1) {
+            width: 160px;
+        }
+        .td:nth-child(2) {
+            width: 11%;
+            padding-right: 90px;
+        }
+        .td:nth-child(3) {
+            width: 9%;
+        }
+        .td:nth-child(4) {
+            width: 11%;
+        }
+        .td:nth-child(5) {
+            width: 12%;
+        }
+        .td:nth-child(6) {
+            width: 11%;
+        }
+        .td:nth-child(7) {
+            width: 11%;
+        }
+        .td:nth-child(8) {
+            width: 11%;
+        }
+        .td:nth-child(9) {
+            width: auto;
+        }
+    }
+    /*ANCHOR ---- Пагинация*/
+    &_pagi {
+        @include for-flex-just-between;
+        width: 100%;
+        margin: 40px 0;
+        position: relative;
+        &_links {
+            @include for-flex-just-center;
+            margin: -4px;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        &_link {
+            @include for-flex-just-center;
+            height: 44px;
+            width: 44px;
+            border-radius: var(--radius-3);
+            border: 1px solid var(--color-5);
+            font-weight: 600;
+            &.active {
+                border-color: var(--color-4);
+            }
+        }
+        a {
+            &:hover {
+                background-color: var(--color-2);
+                border-color: var(--color-2);
+            }
+        }
+        li {
+            padding: 4px;           
+        }
+    }
+}
+/* ANCHOR Сайдбар он же header */
+.header {
+    @include for-flex-column-start;
+    max-width: 316px;
+    min-width: 316px;
+    width: 100%;
+    position: fixed;
+    z-index: 9;
+    height: auto;
+    height: 100%;
+    background: var(--color-0);
+    padding: 32px 15px 50px 25px;
+    &_top {      
+        padding: 0 0 25px 15px;
+        border-bottom: 1px solid rgb(51 51 51 / 16%);   
+        margin-bottom: 40px;
+        width: 100%;
+        &_nav {               
+            display: none;
+        }
+    }
+    &_nav {   
+        height: 100%;
+        overflow: auto;
+        li {
+            margin-bottom: 12px;
+            &.active,
+            &:hover {
+                a {
+                    background: #fff;
+                }
+            }
+            a {
+                @include for-flex-center;
+                padding: 16px 15px;
+                border-radius: var(--radius-1);   
+                white-space: pre;             
+                font: {
+                    size: 17px;
+                    weight: 600;
+                }
+                img {
+                    margin-right: 10px;
+                }
+            }
+        }          
+    }
+    .contacts {
+        @include for-flex-column-start;
+        margin-top: auto;
+        width: 100%;
+        &_link {
+            padding: 16px 15px;
+            width: 100%;
+            border-radius: 12px;
+            &:not(:first-child) {
+                margin-top: 2px;
+            }
+            &:hover {    
+                background: rgb(255 255 255 / 32%);
+            }
+        }
+    }
+}
+// ANCHOR Тело сайта
+.body {
+    @include for-flex-column-start;
+    padding: 35px 40px 50px 28px;
+    width: 100%;
+    min-width: 675px;
+    margin-left: 316px;
+    // ANCHOR Топ в теле страницы
+    &_top {
+        @include for-flex-just-between-start;
+        width: 100%;
+        margin-bottom: 21px;
+        &_title {
+            margin-top: 5px;
+            a {
+                @include for-flex-center;
+                img {
+                    margin-right: 10px;
+                }
+            }
+        }
+        &_nav {
+            @include for-flex-center;
+            margin-top: 8px;
+            span {
+                @include for-flex-just-center;
+                background: var(--color-2);
+                height: 48px;
+                min-width: 48px;
+                border-radius: var(--radius-1);
+                padding: 0 12px;
+                cursor: pointer;
+                &.cabinet {
+                    margin-left: 5px;
+                    position: relative;
+                    .name {
+                        font-weight: 600;
+                        font-size: 15px;
+                        line-height: 20px;
+                        color: #595959;
+                        padding: 0 30px 0 13px;
+                    }
+                    .arrow {
+                        transition: all .3s ease;
+                        position: absolute;
+                        top: 20px;
+                        right: 11px;
+                        display: flex;
+                    }
+                    &.active {
+                        .popupblock {
+                            @include for-flex-column-start;
+                        }
+                    }
+                }
+                &.active {
+                    ~ .popupblock {
+                        @include for-flex-column-start;
+                    }
+                }
+            }
+            
+        }
+    }
+    // ANCHOR Карточки создания счета и бизнеса
+    &_nav {
+        @include for-flex-start;
+        margin-bottom: 37px;
+        &_item {
+            @include for-flex-start;
+            padding: 11px 20px 11px 11px;
+            border-radius: var(--radius-1);
+            border: 1px solid var(--color-5);
+            font-weight: 600;    
+            &:not(:last-child) {
+                margin-right: 23px;
+            }
+            &__icon {
+                @include for-flex-just-center;
+                height: 50px;
+                width: 50px;
+                border-radius: var(--radius-1);
+                background: var(--color-3);
+                margin-right: 10px;
+            }
+            &__info {
+                @include for-flex-column-start;
+                
+                .desc {
+                    font-weight: 500;
+                    font-size: 15px;
+                    color: var(--color-8);
+                    margin-top: 5px;
+                }
+            }
+            &__arrow {
+                @include for-flex-just-center;
+                width: 44px;
+                height: 44px;
+                border: 1px solid var(--color-5);
+                border-radius: var(--radius-1);
+                margin-left: 20px;
+            }
+        }
+        &_administration {
+            .body_nav_item {
+                &:hover {
+                    background: var(--color-2);
+                    .body_nav_item__arrow {
+                        background: var(--color-0);
+                    }
+                }
+            }
+        }
+    }
+    
+}
+//ANCHOR Администрирование детальное описание
+.administration {
+    .form {
+        margin-bottom: 15px;
+        max-width: 345px;
+        width: 100%;
+    }
+    .table {
+        width: auto;
+        min-width: 100%;
+    }
+}
+.about {
+    &_list {
+        &_item {
+            @include for-flex-column-start;
+            font-weight: 500;
+            font-size: 17px;
+            line-height: 24px;
+            margin-bottom: 12px;
+            &__title {
+                font-size: 15px;
+                line-height: 20px;
+                color: var(--color-8);
+            }
+            &_files {
+                &_block {
+                    @include for-flex-center;
+                    a {
+                        @include for-flex-center;
+                        font-weight: 600;
+                        font-size: 13px;
+                        color: var(--color-4);
+                        padding: 5px;
+                        border: 1px solid var(--color-5);
+                        border-radius: var(--radius-4);
+                        margin: 0 5px 5px 0;
+                        img {
+                            margin-right: 5px;
+                        }
+                    }
+                    span {
+                        font-size: 13px;
+                        color: var(--color-8);
+                    }
+                }
+            }
+        }
+    }
+    &_card {
+        margin-bottom: 35px;
+        .about_list {
+            @include for-flex-wrap;
+            border: 1px solid var(--color-5);
+            border-radius: var(--radius-1);
+            padding: 16px;
+            max-width: 600px;
+            &_item {
+                width: 50%;
+            }
+        }
     }
 }
 /*ANCHOR -- Попап блок*/
@@ -278,7 +1238,7 @@ h1 {
     top: 110%;
     z-index: 3;   
     background: #FFFFFF;
-    box-shadow: 0px 4px 16px rgb(9 60 102 / 10%);
+    box-shadow: var(--shadow-popup);
     border-radius: 8px;
     min-width: 290px;
     right: 0;
@@ -286,40 +1246,91 @@ h1 {
     width: 100%;
     padding: 8px;
 }
-/*ANCHOR -- Кнопок*/
-.btn {
-    background: transparent;
-    border: 0;
-    outline: none;
-    font-weight: 600;
-    line-height: 20px;
-    padding: 6px 10px;
-    border: 1px solid var(--color-4);
-    border-radius: var(--radius-2);
-    margin-top: 10px;
-    cursor: pointer;
-
-    &_light {
-        font-size: 15px;
-        &:hover {
-            background: var(--color-2);
-        }
-    }
-}
-/*ANCHOR -- Форм*/
-.label {
-    @include for-flex-center;
-    border-radius: var(--radius-1);
-    border: 1px solid var(--color-5);
-    input {
-        font-weight: 500;
-        outline: none;
-        border: 1px solid transparent;
+.popup {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -99999;
+    &.active {
+        opacity: 1;
         width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99999;
+    }
+    &Overlay {
+        width: 100%;
+        height: 100%;
+        background: rgba(133, 133, 133, 0.6);
+    }
+    &Window {
+        height: auto;
+        max-height: 80vh;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.06);
+        border-radius: var(--radius-1);
+        background: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-width: 385px;
+        width: 100%;
+        padding: 20px;
+        transform: translate(-50%, -50%);
+        &_title {
+            font-weight: 600;
+            font-size: 20px;
+        }
+        &_desc {
+            color: var(--color-8);
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+        &_form {
+            &_small {
+                input {
+                    pointer-events: none;
+                }
+                label {
+                    margin: 0;
+                }
+            }
+        }
+        span {
+            background: transparent;
+            height: auto;
+            width: auto;
+            border: 0;
+            padding: 0;
+            border-radius: 0;
+                
+            &.popupClose {
+                cursor: pointer;
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 20px;
+                top: 20px;
+                right: 20px;
+            }
+        }
+        button {
+            width: 100%;
+            height: 48px;
+        }
     }
 }
 /*ANCHOR -- Уведомления*/
 .notif {
+    display: flex;
     ~ .popupblock {
         max-height: 73vh;
         overflow: hidden;
@@ -438,413 +1449,313 @@ h1 {
         }
     }
 }
-/*ANCHOR  Компонентные блоки */
-/*ANCHOR -- Фильтры*/
-.filter {
-    margin-bottom: 7px;
+// ANCHOR Регистрация на сайте
+.registration {
+    padding: 12px 0;
+    width: 100%;
+    &_title {
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 7px;
+    }
+    &_desc {
+        font-weight: 500;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    &_tabs {
+        padding-left: 15px;
+        margin-bottom: 25px;
+        box-shadow: inset 0px -1px 0px rgb(0 0 0 / 8%);
+        &_link {
+            padding-bottom: 12px;
+            display: inline-block;
+            margin-right: 20px;
+            &:hover,
+            &.active {
+                border-bottom: 2px solid var(--color-0);
+            }
+        }
+    }
+    &_banks {
+        @include for-flex-wrap;
+        max-width: 985px;
+        width: 100%;
+        margin: -8px -8px 27px -8px;
+    }
+    &_bank {
+        padding: 8px;
+        &_item {
+            &_wrap {
+                @include for-flex-just-between;
+                width: 235px;
+                border-radius: var(--radius-1);
+                border: 1px solid var(--color-5);
+                padding: 16px;
+                cursor: pointer;
+                &:hover {
+                    background: var(--color-3);
+                }  
+                &_info {
+                    &__name {
+                        @include for-flex-center;
+                        font-weight: 500;
+                        .tooltips {
+                            margin-left: 10px;
+                        }
+                    }
+                    &__income {
+                        color: var(--color-8);
+                        font-size: 13px;
+                        span {
+                            font-weight: 600;
+                            color: var(--color-1);
+                        }
+                    }
+                }
+                &__ckeck {
+                    @include for-flex-just-center;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    border: 1px solid var(--color-5);
+                    img {
+                        display: none;
+                    }
+                }
+            }          
+            input {
+                display: none;
+                &:checked {
+                    height: 55px;
+                    width: 55px;
+                    & ~ .registration_bank_item_wrap {
+                        background: var(--color-3);
+                        border-color: transparent;
+                        .registration_bank_item_wrap {
+                            &__ckeck {
+                                background: var(--color-0);
+                                img {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &_form {
+        @include for-flex-column-start;
+        max-width: 412px;
+        width: 100%;
+        padding-top: 11px;
+        label {
+            @include for-flex-column-start;
+            width: 100%;
+            margin-bottom: 20px;
+            span {
+                font-weight: 600;
+                font-size: 15px;
+                color: var(--color-1);
+            }
+            input:not([type=file]),
+            textarea {
+                background: var(--color-3);
+                border-radius: var(--radius-1);
+                padding: 12px;
+                border: 0;
+                outline: none;
+                width: 100%;
+                &::placeholder {
+                    color: var(--color-8);
+                }
+            }
+            input {
+                height: 44px;
+                &.error {
+                    background: var(--color-14);                    
+                }
+            } 
+            .error_text{
+                color: var(--color-11);
+                font-size: 14px;
+                font-weight: 400;
+            }
+            textarea {
+                height: 88px;
+                resize: none;
+            }
+        }
+    }
+    &_button {
+        height: 48px;
+        width: 190px;
+        font-weight: 600;
+        font-size: 17px;
+        border-color: transparent;
+    }
+}
+// ANCHOR Инфоблок
+.info {
+    margin-bottom: 20px;
+    width: 100%;
     &_title {
         font-weight: 600;
         font-size: 24px;
-        line-height: 30px;
-        margin-bottom: 16px;
+        margin-bottom: 15px;
     }
-    &_form {
-        @include for-flex-wrap;
-        input {
-            padding-right: 17px;
-            &[type=date] {
-                position: relative;
-                z-index: 1;
-                &::-webkit-calendar-picker-indicator {
-                    opacity: 0;
-                    position: relative;
-                    z-index: 1;
-                    cursor: pointer;
-                }
-            }
-            &:not([type=text])::after {
-                content: '';
-                display: block;
-                background: url(../img/icons/arrow-down.svg) no-repeat 50% 50% / contain;
-                width: 10px;
-                height: 5px;
-                position: absolute;                
-                right: 15px;
-            }
-        }
-        .label {
-            position: relative;  
-            max-width: 238px;
-            min-width: 165px;
-            margin-right: 15px;
-            margin-bottom: 10px;
-            height: 42px;
-            .input {
-                font-size: 17px;
-                padding-left: 8px;   
-                /*А так убрать*/
-            }
-            &.icon {
-                .input {
-                    padding-left: 43px;    
-                }
-                &::before {
-                    content: '';
-                    display: block;
-                    height: 21px;
-                    width: 21px;
-                    position: absolute;
-                    left: 10px;
-                    top: 0;
-                    bottom: 0;
-                    transform: translate(0, 50%);
-                }
-                
-                &.doc::before {
-                    background: url(../img/icons/document.svg) no-repeat 50% 50% / contain;
-                }            
-                &.search::before {
-                    background: url(../img/icons/search.svg) no-repeat 50% 50% / contain;
-                }        
-                &.calendar::before {
-                    background: url(../img/icons/calendar.svg) no-repeat 50% 50% / contain;
-                    z-index: 2;
-                }
-            }
-            &.select {
-                height: 44px;
-                &:after {    
-                    content: '';    
-                    background: url(../img/icons/arrow-down.svg) no-repeat 50% 50% / contain;
-                    width: 10px;
-                    height: 5px;
-                    position: absolute;
-                    right: 15px;
-                }
-            }
-        }
-        &_clear {
-            @include for-flex-just-center;
-            height: 44px;
-            width: 170px;
-            border-radius: 12px;
-            color: var(--color-8);
-            font-size: 16px;
-            font-weight: 500;
-            img {
-                margin-left: 13px;
-            }
-            &:hover {
-                background: #ffe5ea66;
-                color: var(--color-11);
-                img {
-                    filter: invert(13%) sepia(53%) saturate(52000%) hue-rotate(766deg) brightness(170%) contrast(113%);
-                }
-            }
-        }
-    }
-}
-/*ANCHOR -- Таблица*/
-.table {
-    min-width: 1535px;
-    width: 100%;
-    &_section {
-        @include for-flex-column-start;
-        width: 100%;
-    }
-    &_wrap {
-        overflow: auto;
-        width: 100%;
-    }
-    &_head {
-        .tr {        
-            @include for-flex-center;
-            background: var(--color-2);
-            border-radius: var(--radius-1);
-            padding: 16px;
-            font-size: var(--fontsize-main);
-            font-weight: 600;
-            color: var(--color-1);
-        }
-    }
-    &_body {
-        overflow: auto;
-        .tr {
-            @include for-flex-start;
-            padding: 16px;
-            font-weight: 500;
-            font-size: 15px;
-            color: var(--color-6);
-            .td {
-                @include for-flex-column-start;
-                &.nobody {
-                    padding: 8px;
-                    border-radius: var(--radius-3);
-                    text-align: center;
-                    background: var(--color-3);
-                    width: 100%;
-                }
-                span {
-                    display: inline-block;
-                    padding: 0 10px;
-                    height: 28px;
-                    font-size: 13px;
-                    font-weight: 600;
-                    &.bank {
-                        @include for-flex-inline-center;
-                        border-radius: var(--radius-4);
-                        background: var(--color-7);
-                        img {
-                            margin-right: 3px;
-                        }
-                    }
-                    &.bet {
-                        font-size: 15px;
-                        padding: 0;
-                    }
-                    &.info {
-                        padding: 0;
-                        margin: 0;
-                        font-size: 15px;
-                        font-weight: 500;
-                        color: var(--color-8);
-                    }
-                    &.status {
-                        @include for-flex-just-center;
-                        border-radius: var(--radius-4);
-                        &.open {
-                            background: var(--color-12);
-                            color: var(--color-9);
-                        }
-                        &.wait {
-                            background: var(--color-13);
-                            color: var(--color-10);
-                        }
-                        &.reject {
-                            background: var(--color-14);
-                            color: var(--color-11);
-                        }
-                    }
-                    &:not(:last-child) {
-                        margin-bottom: 6px;
-                    }
-                }
-            }
-            &:not(:last-child) {
-                border-bottom: 1px solid var(--color-5);
-            }
-        }
-    } 
-    &_app {
-        .td:nth-child(1) {
-            width: 160px;
-        }
-        .td:nth-child(2) {
-            width: 12%;
-            padding-right: 90px;
-        }
-        .td:nth-child(3) {
-            width: 10%;
-        }
-        .td:nth-child(4) {
-            width: 12%;
-        }
-        .td:nth-child(5) {
-            width: 13%;
-        }
-        .td:nth-child(6) {
-            width: 12%;
-        }
-        .td:nth-child(7) {
-            width: 13%;
-        }
-        .td:nth-child(8) {
-            width: 11%;
-        }
-        .td:nth-child(9) {
-            width: auto;
-        }
-    }
-    /*ANCHOR ---- Пагинация*/
-    &_pagi {
-        @include for-flex-just-between;
-        width: 100%;
-        margin-top: 40px;
-        position: relative;
-        &_links {
-            @include for-flex-just-center;
-            margin: -4px;
-            position: absolute;
-            left: 0;
-            right: 0;
-        }
-        &_link {
-            @include for-flex-just-center;
-            height: 44px;
-            width: 44px;
-            border-radius: var(--radius-3);
-            border: 1px solid var(--color-5);
-            font-weight: 600;
-            &.active {
-                border-color: var(--color-4);
-            }
-        }
-        a {
-            &:hover {
-                background-color: var(--color-2);
-                border-color: var(--color-2);
-            }
-        }
-        li {
-            padding: 4px;           
-        }
-    }
-}
-/* ANCHOR Сайдбар он же header */
-.header {
-    @include for-flex-column-start;
-    // max-width: 316px;
-    max-width: 316px;
-    width: 100%;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    height: auto;
-    background: var(--color-0);
-    padding: 32px 15px 50px 25px;
-    &_top {      
-        padding: 0 0 25px 15px;
-        border-bottom: 1px solid rgb(51 51 51 / 16%);   
-        margin-bottom: 40px;
-        width: 100%;
-        &_nav {               
-            display: none;
-        }
-    }
-    &_nav {   
-        height: 100%;
-        overflow: auto;
-        li {
-            margin-bottom: 12px;
-            &.active,
-            &:hover {
-                a {
-                    background: #fff;
-                }
-            }
-            a {
-                @include for-flex-center;
-                padding: 16px 15px;
-                border-radius: var(--radius-1);                
-                font: {
-                    size: 17px;
-                    weight: 400;
-                }
-                img {
-                    margin-right: 10px;
-                }
-            }
-        }          
-    }
-    .contacts {
-        @include for-flex-column-start;
-        margin-top: auto;
-        width: 100%;
-        &_link {
-            padding: 16px 15px;
-            width: 100%;
-            border-radius: 12px;
-            &:not(:first-child) {
-                margin-top: 2px;
-            }
-            &:hover {    
-                background: rgb(255 255 255 / 32%);
-            }
-        }
-    }
-}
-.body {
-    @include for-flex-column-start;
-    padding: 35px 40px 50px 28px;
-    width: 100%;
-    min-width: 675px;
-    // ANCHOR Топ в теле страницы
-    &_top {
-        @include for-flex-just-between-start;
-        width: 100%;
-        margin-bottom: 21px;
-        &_title {
-            margin-top: 5px;
-        }
-        &_nav {
-            @include for-flex-center;
-            margin-top: 8px;
-            span {
-                @include for-flex-just-center;
-                background: var(--color-2);
-                height: 48px;
-                min-width: 48px;
-                border-radius: var(--radius-1);
-                padding: 0 12px;
-                cursor: pointer;
-                &.cabinet {
-                    margin-left: 5px;
-                    position: relative;
-                    .name {
-                        font-weight: 600;
-                        font-size: 15px;
-                        line-height: 20px;
-                        color: #595959;
-                        padding: 0 30px 0 13px;
-                    }
-                    .arrow {
-                        transition: all .3s ease;
-                        position: absolute;
-                        top: 20px;
-                        right: 11px;
-                        display: flex;
-                    }
-                    &.active {
-                        .popupblock {
-                            @include for-flex-column-start;
-                        }
-                        .arrow {
-                            transform: rotate(-180deg);
-                        }
-                    }
-                }
-                &.active {
-                    ~ .popupblock {
-                        @include for-flex-column-start;
-                    }
-                }
-            }
-            
-        }
-    }
-    // ANCHOR Карточки создания счета и бизнеса
-    &_nav {
-        @include for-flex-start;
-        margin-bottom: 37px;
+    &_list {
+        display: flex;
+        flex-wrap: wrap;
         &_item {
-            @include for-flex-start;
-            padding: 11px 20px 11px 11px;
-            border-radius: var(--radius-1);
+            @include for-flex-column-start;
             border: 1px solid var(--color-5);
-            font-weight: 600;    
+            border-radius: var(--radius-1);
+            padding: 16px;
+            width: 290px;
             &:not(:last-child) {
-                margin-right: 23px;
+                margin-right: 25px;
+            }
+            &__title {
+                margin-bottom: 15px;
+            }
+            &__count {
+                font-weight: 800;
+                font-size: 40px;
+                line-height: 1em;
+                span {
+                    font-weight: 600;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+// ANCHOR Документы
+.documents {
+    &_list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -12px -12px 25px -12px;
+        &_item {
+            padding: 12px;
+            &_wrap {
+                @include for-flex-column-center;
+                background: var(--color-3);
+                border-radius: var(--radius-1);
+                width: 280px;
+                height: 100%;
+                padding: 20px 30px;
+                text-align: center;
+                &__title {
+                    font-weight: 500;
+                    margin-bottom: 5px;
+                }
+                &__download {
+                    font-weight: 600;
+                    font-size: 15px;                    
+                    margin-bottom: 5px;
+                    margin-top: auto;
+                    img {
+                        margin-right: 10px;
+                    }
+                    &:hover {
+                        background: var(--color-0);
+                        border-color: var(--color-5);
+                    }
+                }
+                &__size {
+                    font-size: 13px;
+                    color: var(--color-8);
+                }
+            }
+        }
+    }
+    &_title {
+        font-weight: 600;
+        font-size: 24px;
+        margin-bottom: 13px;
+
+    }
+}
+// ANCHOR FAQ
+.faq {
+    max-width: 815px;
+    width: 100%;
+    &_list {
+        &_item {
+            position: relative;
+            background: var(--color-3);
+            border-radius: var(--radius-1);
+            padding: 16px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            &__title {
+                font-weight: 600;
+            }
+            &__content {
+                font-weight: 500;
+                font-size: 15px;
+                display: none;
+                position: relative;
+                ol, ul {
+                    padding-left: 15px;
+                    list-style: auto;
+                    li {
+                        list-style: auto;
+                    }
+                }
             }
             &__icon {
-                @include for-flex-just-center;
-                height: 50px;
-                width: 50px;
-                border-radius: var(--radius-1);
-                background: var(--color-3);
-                margin-right: 10px;
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                display: inline-flex;
             }
-            &__info {
-                @include for-flex-column-start;
+            &.active {
+                .faq_list_item__content {
+                    margin-top: 10px;
+                    display: block;
+                }
+                .faq_list_item__icon {
+                    filter: invert(13%) sepia(53%) saturate(466%) hue-rotate(365deg) brightness(52%) contrast(113%);
+                    transform: rotate(50deg);
+                }
+            }
+        }
+    }
+    &_button {
+        border: 0;
+        font-weight: 600;
+        font-size: 17px;
+        padding: 12px 18px;
+        img {
+            margin-right: 5px;
+        }
+    }
+}
+// ANCHOR Подвал
+.footer {
+    display: none;    
+    border-top: 1px solid var(--color-5);
+    padding: 7px 20px 5px;
+    .logo {
+        width: 120px;
+        img {
+            width: 100%;
+        }
+    }
+    .contacts {
+        align-items: flex-end;
+        flex-direction: column-reverse;
+        &_link {
+            display: inline-flex;
+            margin-bottom: 5px;
+            font-size: 13px;
+            img {
+                width: 20px;
+                filter: contrast(0.1);
             }
         }
     }

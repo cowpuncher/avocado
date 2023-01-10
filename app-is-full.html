@@ -19,12 +19,63 @@
                     <img src="./assets/img/icons/logo.svg" alt="logo">
                 </a>
                 <div class="header_top_nav">
-                    <a href="#" class="header_top_nav__btn">
+                    <span class="header_top_nav__btn" id="burger_btn">
                         <img src="./assets/img/icons/burger.svg" alt="burger">
-                    </a>
+                    </span>
                 </div>
+                <!--Мобильное меню из бургера начало -->
+                <div class="popup_fullpage popup_menu">
+                    <span class="popup_fullpage_close">
+                        <img src="./assets/img/icons/back-arrow.svg" alt="back-arrow">
+                        Профиль
+                    </span>
+                    <div class="popup_fullpage_list">
+                        <div class="popup_fullpage_list_item">
+                            <div class="popup_fullpage_list_item__title">
+                                Меню
+                            </div>
+                            <ul class="menu">
+                                <li class="active"><a href="#"><img src="./assets/img/icons/menu-1.svg" alt="icons">Заявки</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-2.svg" alt="icons">Статистика</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-3.svg" alt="icons">Сотрудники</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-4.svg" alt="icons">Реферальные программы</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-5.svg" alt="icons">Документы</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-6.svg" alt="icons">F.A.Q</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-7.svg" alt="icons">Администрирование</a></li>
+                            </ul>
+                        </div>                        
+                        <div class="popup_fullpage_list_item">
+                            <div class="popup_fullpage_list_item__title">
+                                Аккаунт
+                            </div>     
+                            <!--Блок аккаунта , везде одинаковый--> 
+                            <div class="account">
+                                <a href="#"><img src="./assets/img/icons/profile.svg" alt="profile"> Личный кабинет</a>
+                                <a href="#"><img src="./assets/img/icons/logout.svg" alt="logout"> Выход</a>
+                            </div>
+                            <!--Блок аккаунта , везде одинаковый--> 
+                        </div>                     
+                        <div class="popup_fullpage_list_item">
+                            <div class="popup_fullpage_list_item__title">
+                                Поддержка
+                            </div>     
+                            <!--Блок контактов , везде одинаковый-->                       
+                            <div class="contacts">
+                                <a href="mailto:mail@mail.ru" class="contacts_link">
+                                    <img src="./assets/img/icons/message-question.svg" alt="message">support24@avocado.ru
+                                </a>
+                                <a href="tel:79112223344" class="contacts_link">
+                                    <img src="./assets/img/icons/call.svg" alt="call">+7 (954) 525-40-22
+                                </a>
+                            </div>
+                            <!--Блок контактов , везде одинаковый--> 
+                        </div>
+                    </div>
+                </div>
+                <!--Мобильное меню из бургера конец -->
             </div>
             <nav class="header_nav">
+                <!--Блок меню , везде одинаковый начало-->
                 <ul class="menu">
                     <li class="active"><a href="#"><img src="./assets/img/icons/menu-1.svg" alt="icons">Заявки</a></li>
                     <li><a href="#"><img src="./assets/img/icons/menu-2.svg" alt="icons">Статистика</a></li>
@@ -33,8 +84,10 @@
                     <li><a href="#"><img src="./assets/img/icons/menu-5.svg" alt="icons">Документы</a></li>
                     <li><a href="#"><img src="./assets/img/icons/menu-6.svg" alt="icons">F.A.Q</a></li>
                     <li><a href="#"><img src="./assets/img/icons/menu-7.svg" alt="icons">Администрирование</a></li>
-                </ul>
+                </ul>                
+                <!--Блок меню , везде одинаковый конец-->
             </nav>
+            <!--Блок контактов , везде одинаковый начало--> 
             <div class="contacts">
                 <a href="mailto:mail@mail.ru" class="contacts_link">
                     <img src="./assets/img/icons/message-question.svg" alt="message">support24@avocado.ru
@@ -43,6 +96,7 @@
                     <img src="./assets/img/icons/call.svg" alt="call">+7 (954) 525-40-22
                 </a>
             </div>
+            <!--Блок контактов , везде одинаковый конец --> 
         </header>
         <!-- Правый сайдбар конец -->
         <!-- Тело кабинета начало -->
@@ -162,7 +216,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -179,9 +232,13 @@
                                 <img src="./assets/img/icons/arrow-down.svg" alt="arrow">
                             </div>
                         </span>
-                        <div class="popupblock">
-                            <a href="#"><img src="./assets/img/icons/profile.svg" alt="profile"> Личный кабинет</a>
-                            <a href="#"><img src="./assets/img/icons/logout.svg" alt="logout"> Выход</a>
+                        <div class="popupblock">   
+                            <!--Блок аккаунта , везде одинаковый-->                          
+                            <div class="account">
+                                <a href="#"><img src="./assets/img/icons/profile.svg" alt="profile"> Личный кабинет</a>
+                                <a href="#"><img src="./assets/img/icons/logout.svg" alt="logout"> Выход</a>
+                            </div>
+                            <!--Блок аккаунта , везде одинаковый-->    
                         </div>
                     </div>
                     <!-- Обертка для блока с выпадающим меню конец -->
@@ -223,18 +280,25 @@
                 </div>
                 <form class="filter_form">
                     <label class="label icon search">
+                        <div class="filter_form_lable__name">ФИО</div>
                         <input type="text" class="input" name="name" placeholder="Поиск по ФИО">
                     </label>
                     <label class="label icon doc">
+                        <div class="filter_form_lable__name">ИНН</div>
                         <input type="text" class="input" name="name" placeholder="Поиск по ИНН">
                     </label>
-                    <label class="label icon calendar">
-                        <input type="date" class="input" >
-                    </label>
-                    <label class="label calendar">
-                        <input type="date" class="input" >
-                    </label>
+                    <div class="filter_form_dates">
+                        <div class="filter_form_lable__name">Дата заявки</div>
+                        <label class="label icon calendar">
+                            <input type="date" class="input" >
+                        </label>
+                        <span>-</span>
+                        <label class="label calendar">
+                            <input type="date" class="input" >
+                        </label>
+                    </div>
                     <div class="label select">
+                        <div class="filter_form_lable__name">Статус заявки</div>
                         <select name="" id="">
                             <option value="none" selected disabled >Статус</option>
                             <option value="">
@@ -249,6 +313,7 @@
                         </select>
                     </div>
                     <div class="label select">
+                        <div class="filter_form_lable__name">Банк</div>
                         <select name="" id="">
                             <option value="none" selected disabled >Банк</option>
                             <option value="">
@@ -268,8 +333,24 @@
                             </option>
                         </select>
                     </div>
-                    <a href="#" class="filter_form_clear">Очистить фильтр<img src="./assets/img/icons/clear.svg" alt="clear"></a>
+                    <!--Обертка для кнопок, у кнопки применить фильтр активность на классе active-->
+                    <div class="filter_form_buttons">
+                        <button class="filter_form_button">Применить фильтр</button>
+                        <a href="#" class="filter_form_clear">Очистить фильтр<img src="./assets/img/icons/close.svg" alt="clear"></a>
+                    </div>
                 </form>
+                <span class="burger_filter" id="burger_filter"><img src="./assets/img/icons/filter.svg" alt="filter"></span>
+                <!-- Фильтр меню из бургера начало -->
+                <div class="popup_fullpage popup_filter">
+                    <span class="popup_fullpage_close">
+                        <img src="./assets/img/icons/back-arrow.svg" alt="back-arrow">
+                        Фильтр
+                    </span>
+                    <div class="popup_filter_body">
+
+                    </div>
+                </div>
+                <!-- Фильтр меню из бургера конец -->
             </section>
             <!-- Форма с фильтрами конец --> 
             <!-- 
@@ -429,8 +510,22 @@
         <!-- Тело кабинета конец -->
         
         <!-- Подвал начиная с планшета начало -->
-        <footer class="footer">
-
+        <footer class="footer">    
+            <!--Блок лого , везде одинаковый-->         
+            <a href="/" class="logo">
+                <img src="./assets/img/icons/logo.svg" alt="logo">
+            </a>
+            <!--Блок лого , везде одинаковый-->     
+            <!--Блок контактов , везде одинаковый--> 
+            <div class="contacts">
+                <a href="mailto:mail@mail.ru" class="contacts_link">
+                    <img src="./assets/img/icons/message-question.svg" alt="message">support24@avocado.ru
+                </a>
+                <a href="tel:79112223344" class="contacts_link">
+                    <img src="./assets/img/icons/call.svg" alt="call">+7 (954) 525-40-22
+                </a>
+            </div>
+            <!--Блок контактов , везде одинаковый--> 
         </footer>        
         <!-- Подвал начиная с планшета начало -->
     </div>
