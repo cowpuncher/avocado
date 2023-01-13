@@ -1,0 +1,371 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/fonts.css">
+    <link rel="stylesheet" href="./assets/lib/select/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/media.css">
+    <title>Avocado</title>
+ </head>
+ <body>
+    <div class="main_wrapper">
+        <!-- Правый сайдбар начало -->
+        <header class="header">
+            <div class="header_top">
+                <a href="/" class="logo">
+                    <img src="./assets/img/icons/logo.svg" alt="logo">
+                </a>
+                <div class="header_top_nav">
+                    <span class="header_top_nav__btn" id="burger_btn">
+                        <img src="./assets/img/icons/burger.svg" alt="burger">
+                    </span>
+                </div>
+                <!--Мобильное меню из бургера начало -->
+                <div class="popup_fullpage popup_menu">
+                    <span class="popup_fullpage_close">
+                        <img src="./assets/img/icons/back-arrow.svg" alt="back-arrow">
+                        Профиль
+                    </span>
+                    <div class="popup_fullpage_list">
+                        <div class="popup_fullpage_list_item">
+                            <div class="popup_fullpage_list_item__title">
+                                Меню
+                            </div>
+                            <ul class="menu">
+                                <li class="active"><a href="#"><img src="./assets/img/icons/menu-1.svg" alt="icons">Заявки</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-2.svg" alt="icons">Статистика</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-3.svg" alt="icons">Сотрудники</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-4.svg" alt="icons">Реферальные программы</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-5.svg" alt="icons">Документы</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-6.svg" alt="icons">F.A.Q</a></li>
+                                <li><a href="#"><img src="./assets/img/icons/menu-7.svg" alt="icons">Администрирование</a></li>
+                            </ul>
+                        </div>                        
+                        <div class="popup_fullpage_list_item">
+                            <div class="popup_fullpage_list_item__title">
+                                Аккаунт
+                            </div>     
+                            <!--Блок аккаунта , везде одинаковый--> 
+                            <div class="account">
+                                <a href="#"><img src="./assets/img/icons/profile.svg" alt="profile"> Личный кабинет</a>
+                                <a href="#"><img src="./assets/img/icons/logout.svg" alt="logout"> Выход</a>
+                            </div>
+                            <!--Блок аккаунта , везде одинаковый--> 
+                        </div>                     
+                        <div class="popup_fullpage_list_item">
+                            <div class="popup_fullpage_list_item__title">
+                                Поддержка
+                            </div>     
+                            <!--Блок контактов , везде одинаковый-->                       
+                            <div class="contacts">
+                                <a href="mailto:mail@mail.ru" class="contacts_link">
+                                    <img src="./assets/img/icons/message-question.svg" alt="message">support24@avocado.ru
+                                </a>
+                                <a href="tel:79112223344" class="contacts_link">
+                                    <img src="./assets/img/icons/call.svg" alt="call">+7 (954) 525-40-22
+                                </a>
+                            </div>
+                            <!--Блок контактов , везде одинаковый--> 
+                        </div>
+                    </div>
+                </div>
+                <!--Мобильное меню из бургера конец -->
+            </div>
+            <nav class="header_nav">
+                <!--Блок меню , везде одинаковый начало-->
+                <ul class="menu">
+                    <li class="active"><a href="#"><img src="./assets/img/icons/menu-1.svg" alt="icons">Заявки</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-2.svg" alt="icons">Статистика</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-3.svg" alt="icons">Сотрудники</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-4.svg" alt="icons">Реферальные программы</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-5.svg" alt="icons">Документы</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-6.svg" alt="icons">F.A.Q</a></li>
+                    <li><a href="#"><img src="./assets/img/icons/menu-7.svg" alt="icons">Администрирование</a></li>
+                </ul>                
+                <!--Блок меню , везде одинаковый конец-->
+            </nav>
+            <!--Блок контактов , везде одинаковый начало--> 
+            <div class="contacts">
+                <a href="mailto:mail@mail.ru" class="contacts_link">
+                    <img src="./assets/img/icons/message-question.svg" alt="message">support24@avocado.ru
+                </a>
+                <a href="tel:79112223344" class="contacts_link">
+                    <img src="./assets/img/icons/call.svg" alt="call">+7 (954) 525-40-22
+                </a>
+            </div>
+            <!--Блок контактов , везде одинаковый конец --> 
+        </header>
+        <!-- Правый сайдбар конец -->
+        <!-- Тело кабинета начало -->
+        <main class="body">
+            <!-- Шапка с заголовком и крошками начало -->
+            <section class="body_top">
+                <div class="body_top_about">
+                    <div class="breadcrumbs">
+                        <a href="#">Главная</a>
+                        <span> / </span>
+                        <a href="#">Личный кабинет</a>
+                    </div>
+                    <h1 class="body_top_title">
+                        <a href="#">
+                            <img src="./assets/img/icons/arrow-circle-left.svg" alt="arrow">
+                            Списание средств
+                        </a>
+                    </h1>
+                </div>
+                <div class="body_top_nav">
+                    <!-- 
+                        Обертка для блока с выпадающим меню начало!
+
+                        Здесь выпадашка уведовлений. 
+                        Там текст обрезается с помощью js функции, 
+                        можно задать любое количество обрезаемых букв.
+                        Так же кнопка смотреть еще добавляется через js, если текста много.
+                        
+                        Так же элементы которые я перемещаю я им цепляю id, 
+                        имей ввиду, он будет перелетать в шапку в мобиле
+                    -->
+                    <div class="wrap_popupblock" id="notif">
+                        <span class="notif">
+                            <img src="./assets/img/icons/notification-alarm.svg" alt="notification">
+                        </span>
+                        <div class="popupblock">
+                            <div class="notif_top">
+                                <div class="notif_top_title">
+                                    Уведомления
+                                    <div class="notif_top_title__nobody">Новых уведомлений нет</div>
+                                </div>
+                                <a href="#" class="notif_top_more">Прочитать все</a>
+                            </div>
+                            <!--
+                                Уведомления
+                            -->
+                            <div class="notif_list">
+                                <!--
+                                    Если уведомление не прочитанное то 
+                                    вешаем класс notif_list_item__new
+                                    В макете не было кнопки свернуть уведомление, 
+                                    я на всякий случай добавил
+                                -->
+                                <div class="notif_list_item notif_list_item__new">
+                                    <div class="notif_list_icon"><img src="./assets/img/icons/b-mod.svg" alt="bank"></div>
+                                    <div class="notif_list_block">
+                                        <div class="notif_list_block_top">
+                                            <div class="notif_list_block_top__name">Модульбанк</div>
+                                            <time class="notif_list_block_top__date">17.11.2022, 17:15</time>
+                                        </div>
+                                        <div class="notif_list_block_body">
+                                            <div class="notif_list_block_body__title">Снижение вознаграждения за регистрацию ИП</div>
+                                            <div class="notif_list_block_body__text">                                                 
+                                                <p>
+                                                    1Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
+                                                </p>
+                                                <p>                                                    
+                                                    У клиентов банка появилась возможность подключить овердрафт на год бесплатно, а пользоваться им, когда нужно дополнительное финансирование. Как это работает: к расчетному счету подключается кредитный лимит, а оплата проходит автоматически, если собственных средств на счете не хватило для проведения платежа.
+                                                </p>
+                                                <p>
+                                                    Проценты начисляются только на деньги, которыми клиент воспользовался, а не на весь лимит. Кроме того, клиент платит проценты ровно за тот период, в который он пользовался этими деньгами – и ничего лишнего.60 дней — столько можно находиться «в минусе». Если вернуть деньги в день расчета с контрагентом до 23:00 — проценты не начисляются.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notif_list_item notif_list_item__new">
+                                    <div class="notif_list_icon"><img src="./assets/img/icons/b-alfa.svg" alt="bank"></div>
+                                    <div class="notif_list_block">
+                                        <div class="notif_list_block_top">
+                                            <div class="notif_list_block_top__name">Альфа Банк</div>
+                                            <time class="notif_list_block_top__date">17.11.2022, 13:15</time>
+                                        </div>
+                                        <div class="notif_list_block_body">
+                                            <div class="notif_list_block_body__title">Снижение вознаграждения за регистрацию ИП</div>
+                                            <div class="notif_list_block_body__text">                                                
+                                                <p>
+                                                    2Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
+                                                </p>
+                                                <p>                                                    
+                                                    У клиентов банка появилась возможность подключить овердрафт на год бесплатно, а пользоваться им, когда нужно дополнительное финансирование. Как это работает: к расчетному счету подключается кредитный лимит, а оплата проходит автоматически, если собственных средств на счете не хватило для проведения платежа.
+                                                </p>
+                                                <p>
+                                                    Проценты начисляются только на деньги, которыми клиент воспользовался, а не на весь лимит. Кроме того, клиент платит проценты ровно за тот период, в который он пользовался этими деньгами – и ничего лишнего.60 дней — столько можно находиться «в минусе». Если вернуть деньги в день расчета с контрагентом до 23:00 — проценты не начисляются.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notif_list_item">
+                                    <div class="notif_list_icon"><img src="./assets/img/icons/b-otk.svg" alt="bank"></div>
+                                    <div class="notif_list_block">
+                                        <div class="notif_list_block_top">
+                                            <div class="notif_list_block_top__name">ФК Открытие</div>
+                                            <time class="notif_list_block_top__date">15.11.2022, 02:15</time>
+                                        </div>
+                                        <div class="notif_list_block_body">
+                                            <div class="notif_list_block_body__title">Снижение вознаграждения за регистрацию ИП</div>
+                                            <div class="notif_list_block_body__text">                                              
+                                                <p>
+                                                    3Компании смогут воспользоваться «запасным кошельком» и при необходимости рассчитаться с контрагентами, когда денег на счете не хватает.
+                                                </p>
+                                                <p>                                                    
+                                                    У клиентов банка появилась возможность подключить овердрафт на год бесплатно, а пользоваться им, когда нужно дополнительное финансирование. Как это работает: к расчетному счету подключается кредитный лимит, а оплата проходит автоматически, если собственных средств на счете не хватило для проведения платежа.
+                                                </p>
+                                                <p>
+                                                    Проценты начисляются только на деньги, которыми клиент воспользовался, а не на весь лимит. Кроме того, клиент платит проценты ровно за тот период, в который он пользовался этими деньгами – и ничего лишнего.60 дней — столько можно находиться «в минусе». Если вернуть деньги в день расчета с контрагентом до 23:00 — проценты не начисляются.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 
+                        Блок уведомлений закончился
+                        Обертка для блока с выпадающим меню конец 
+                    -->
+                    <!-- Обертка для блока с выпадающим меню начало -->
+                    <div class="wrap_popupblock">
+                        <span class="cabinet">
+                            <div class="avatar"><img src="./assets/img/ava.jpg" alt="ava"></div>
+                            <div class="name">Мария М.</div>
+                            <div class="arrow">
+                                <img src="./assets/img/icons/arrow-down.svg" alt="arrow">
+                            </div>
+                        </span>
+                        <div class="popupblock">   
+                            <!--Блок аккаунта , везде одинаковый-->                          
+                            <div class="account">
+                                <a href="#"><img src="./assets/img/icons/profile.svg" alt="profile"> Личный кабинет</a>
+                                <a href="#"><img src="./assets/img/icons/logout.svg" alt="logout"> Выход</a>
+                            </div>
+                            <!--Блок аккаунта , везде одинаковый-->    
+                        </div>
+                    </div>
+                    <!-- Обертка для блока с выпадающим меню конец -->
+                </div>
+            </section>
+            <!-- Шапка с заголовком и крошками конец -->
+
+            <!-- Форма с фильтрами начало -->      
+           <section class="filter_small"> 
+                <form class="filter_small_form">
+                    <label class="label icon search">
+                        <input type="text" class="input" name="name" placeholder="Поиск по ФИО">
+                    </label>
+                    <label class="label">
+                        <input type="text" class="input" name="name" placeholder="Поиск по ИНН">
+                    </label>
+                    <label class="label">
+                        <input type="text" class="input" name="name" placeholder="Компания">
+                    </label>
+                    <button class="filter_small_form_button"><img src="./assets/img/icons/search.svg" alt="search"></button>
+                    <a href="#" class="filter_small_form_clear">Очистить фильтр<img src="./assets/img/icons/close.svg" alt="clear"></a>
+                </form>
+            </section>
+            <!-- Форма с фильтрами конец -->
+            
+            
+            <section class="table_section">
+                <div class="table_wrap">
+                    <div class="table">
+                        <div class="table_head">
+                            <div class="tr">
+                                <div class="td">ID</div>
+                                <div class="td">ФИО</div>
+                                <div class="td">ИНН</div>
+                                <div class="td">Компания</div>
+                            </div>
+                        </div>
+                        <div class="table_body">
+                            <div class="tr">
+                                <div class="td"><a href="#">012</a></div>
+                                <div class="td">Макарова Дарья</div>
+                                <div class="td">697656503501</div>
+                                <div class="td">ИП Чернов К. М.</div>
+                            </div>
+                            <div class="tr">
+                                <div class="td"><a href="#">012</a></div>
+                                <div class="td">Макарова Дарья</div>
+                                <div class="td">697656503501</div>
+                                <div class="td">ИП Чернов К. М.</div>
+                            </div>
+                            <div class="tr">
+                                <div class="td"><a href="#">012</a></div>
+                                <div class="td">Макарова Дарья</div>
+                                <div class="td">697656503501</div>
+                                <div class="td">ИП Чернов К. М.</div>
+                            </div>
+                            <div class="tr">
+                                <div class="td"><a href="#">012</a></div>
+                                <div class="td">Макарова Дарья</div>
+                                <div class="td">697656503501</div>
+                                <div class="td">ИП Чернов К. М.</div>
+                            </div>
+                            <div class="tr">
+                                <div class="td"><a href="#">012</a></div>
+                                <div class="td">Макарова Дарья</div>
+                                <div class="td">697656503501</div>
+                                <div class="td">ИП Чернов К. М.</div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>          
+                <div class="table_pagi">
+                    <div class="table_pagi_counter">
+                        3 из 200 заявок
+                    </div>
+                    <ul class="table_pagi_links">
+                        <li>
+                            <a href="#" class="table_pagi_link"><img src="./assets/img/icons/arrow-prev.svg" alt="arrow-prev"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="table_pagi_link">1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="table_pagi_link active">2</a>
+                        </li>
+                        <li>
+                            <a href="#" class="table_pagi_link">3</a>
+                        </li>
+                        <li>
+                            <span class="table_pagi_link">...</span>
+                        </li>
+                        <li>
+                            <a href="#" class="table_pagi_link">9</a>
+                        </li>
+                        <li>
+                            <a href="#" class="table_pagi_link"><img src="./assets/img/icons/arrow-next.svg" alt="arrow-next"></a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <!-- Тело кабинета конец -->
+        
+        <!-- Подвал начиная с планшета начало -->
+        <footer class="footer">    
+            <!--Блок лого , везде одинаковый-->         
+            <a href="/" class="logo">
+                <img src="./assets/img/icons/logo.svg" alt="logo">
+            </a>
+            <!--Блок лого , везде одинаковый-->     
+            <!--Блок контактов , везде одинаковый--> 
+            <div class="contacts">
+                <a href="mailto:mail@mail.ru" class="contacts_link">
+                    <img src="./assets/img/icons/message-question.svg" alt="message">support24@avocado.ru
+                </a>
+                <a href="tel:79112223344" class="contacts_link">
+                    <img src="./assets/img/icons/call.svg" alt="call">+7 (954) 525-40-22
+                </a>
+            </div>
+            <!--Блок контактов , везде одинаковый--> 
+        </footer>        
+        <!-- Подвал начиная с планшета начало -->
+    </div>
+    <script src="./assets/lib/select/script.js"></script>
+    <script src="./assets/js/script.js"></script>
+ </body>
+ </html>

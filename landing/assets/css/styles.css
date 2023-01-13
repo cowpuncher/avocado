@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --color-span: #8BC503;
+    --color-btn: #E3FE75;
+    --color-btn-border: #8FCC00;
+    --color-burger: #292D32;
+
+    --radius-1: 12px;
+}
+body {
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333333;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+}
+ul,ol {
+    list-style: none;
+}
+/*Тайтлы, описание секций*/
+.main_title {
+    font-size: 55px;
+    line-height: 68px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.main_title span {
+    color: var(--color-span);
+    display: block;
+}
+.section_desc {
+    font-size: 17px;
+    line-height: 24px;
+}
+/*Кнопки*/
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-1);
+    height: 48px;
+    text-decoration: none;
+    color: #333333;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 24px;
+    padding: 0 20px;
+    border: 1px solid var(--color-btn-border);
+}
+.btn:hover {
+    background: var(--color-btn);
+    border-color: var(--color-btn);
+}
+/*Меню*/
+.burger {
+    outline: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+.burger span {
+    width: 24px;
+    height: 2px;
+    border-radius: 50px;
+    display: block;
+    background: var(--color-burger);
+}
+.burger span:not(:last-child) {
+    margin-bottom: 5px;
+}
+/*HEADER*/
+.header {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all .5s ease;
+}
+.header_top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5em 5em;
+}
+.header .section_desc {
+    text-align: center;
+    margin: 20px 0 35px;
+}
+.header_buttons {
+    display: flex;
+}
+.header_buttons .btn:not(:last-child) {
+    margin-right: 20px;
+}
+.header_top_nav  {
+    margin: 0 70px 0 auto;
+}
+.header_top_nav ul {
+    display: flex;
+    align-items: center;
+}
+.header_top_nav ul li:not(:last-child) {
+    margin-right: 35px;
+}
+.header_top_nav a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #858585;
+    text-decoration: none;
+}
+/*PRODUCTS*/
+.products {
+    height: 100vh;
+    background: #FFEDE8;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.products_item {
+    height: 100vh;
+}
+.products_item_image {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 15px;
+}
