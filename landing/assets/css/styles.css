@@ -16,6 +16,8 @@ body {
     font-size: 15px;
     font-weight: 500;
     color: #333333;
+    
+    transition: all .5s ease;
 }
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Unbounded', sans-serif;
@@ -30,6 +32,7 @@ ul,ol {
     line-height: 68px;
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
 .main_title span {
     color: var(--color-span);
@@ -77,13 +80,13 @@ ul,ol {
 }
 /*HEADER*/
 .header {
-    height: 100vh;
+    padding: 228px 0 55px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transition: all .5s ease;
+    /* transition: all .5s ease; */
 }
 .header_top {
     position: absolute;
@@ -96,7 +99,7 @@ ul,ol {
 }
 .header .section_desc {
     text-align: center;
-    margin: 20px 0 35px;
+    margin: 20px 0 28px;
 }
 .header_buttons {
     display: flex;
@@ -122,19 +125,52 @@ ul,ol {
     text-decoration: none;
 }
 /*PRODUCTS*/
-.products {
-    height: 100vh;
-    background: #FFEDE8;
+.products_wrap {
+    /* transition: all .5s ease; */
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    padding: 0 12vw;
 }
 .products_item {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 .products_item_image {
     width: 350px;
     height: 350px;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 30px;
+}
+.products_left {
+    width: 100%;
+    position: relative;
+}
+.products_right {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    width: 50%;
+    margin-left: auto;
+}
+.products_left .section_desc {
+    margin-bottom: 36px;
+}
+.products_left .section_title {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 52px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.products_left .btn {
+
 }
