@@ -4,18 +4,22 @@ const products = document.querySelector('.products');
 const productsWrap = document.querySelector('.products_wrap');
 const productsItem = document.querySelectorAll('.products_item');
 const productsImage = document.querySelectorAll('.products_item_image .image');
+const offerWrap = document.querySelector('.offer_wrap');
 const offer = document.querySelector('.offer');
 const offerList = document.querySelector('.offer_list');
 
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+}
 
 document.addEventListener('scroll', e => {
 
     if((header.offsetHeight/2) < window.pageYOffset) {
-        header.setAttribute('style','background: #FFEDE8;');
-        products.setAttribute('style','background: #FFEDE8;');
+        header.setAttribute('style','background: #FFEDE8; transition: all .5s ease;');
+        products.setAttribute('style','background: #FFEDE8;transition: all .5s ease; ');
     } else {
-        header.setAttribute('style','background: #ffffff;');
-        products.setAttribute('style','background: #ffffff;');
+        header.setAttribute('style','background: #ffffff;transition: all .5s ease;');
+        products.setAttribute('style','background: #ffffff;transition: all .5s ease;');
     }
     
     for(var i = 0; i < productsItem.length; i++) {
@@ -31,8 +35,7 @@ document.addEventListener('scroll', e => {
     }
     for(var i = 0; i < productsItem.length; i++) {
         let productBound = productsItem[i].getBoundingClientRect();
-        //let imageBound = productsImage[i].getBoundingClientRect();
-
+        
         if((productBound.top) <= 0) {
             if(i == 0) {              
                 productsImage[i].setAttribute('style', 'clip-path: inset(0px 0px '+ ((-productBound.top/window.innerHeight)*100) +'%);');                
@@ -44,24 +47,15 @@ document.addEventListener('scroll', e => {
         }
     }
 
-    if(offer.getBoundingClientRect().top <= 0) {
-        let activeTrack = 0;
-        //offer.addEventListener('wheel', function(event) {
-        //    if(activeTrack > 0) {
-        //        body.classList.add('hidden');
-        //        console.log(activeTrack);
-        //        //offerList.setAttribute('style', 'transform: translate(-'+activeTrack/50+'%, 0);')
-        //    } else {
-        //        body.classList.remove('hidden');
-        //    }
-        //    activeTrack = activeTrack + event.deltaY;
-        //    console.log(activeTrack);
-        //})
-
-        
+    let countNumb = 0;
+    for(var i = 0; i < offerList.children.length; i++) {
+        countNumb = countNumb + offerList.children[i].scrollWidth
     }
 
-    //for(var i = 0; i < offerList.children.length; i++) {
-    //    console.log(offerList.children[i].scrollWidth );
-    //}
+    if(offerWrap.getBoundingClientRect().top <= 0 && -(countNumb/4) < offerWrap.getBoundingClientRect().top) {
+        offerList.setAttribute('style', 'transform: translate('+ offerWrap.getBoundingClientRect().top/10 +'%,0);');
+    }
+    
+    //offerWrap.setAttribute('style', 'height: '+Math.floor(countNumb/1.5)+'px;');
+
 });
