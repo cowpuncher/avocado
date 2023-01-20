@@ -8,73 +8,131 @@ const offerWrap = document.querySelector('.offer_wrap');
 const offer = document.querySelector('.offer');
 const offerList = document.querySelector('.offer_list');
 
-window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
+
+function readyPage() {
+
+   
+    // При загрузке страница начинать скролл с самого верха
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    }
+
+    document.addEventListener('scroll', e => {
+        let topOffset = window.pageYOffset;
+        //Смена фона у хедера
+        if((header.offsetHeight/2) < topOffset) {
+            header.setAttribute('style','background: #FFEDE8; transition: all .5s ease;');
+            products.setAttribute('style','background: #FFEDE8;transition: all .5s ease; ');
+        } else {
+            header.setAttribute('style','background: #ffffff;transition: all .5s ease;');
+            products.setAttribute('style','background: #ffffff;transition: all .5s ease;');
+        }
+        // Смена фона 
+        for(var i = 0; i < productsItem.length; i++) {
+            if((productsItem[i].getBoundingClientRect().top + document.documentElement.clientHeight/2) <= 0) {
+                if(i == 0) {
+                    products.setAttribute('style','background: #D3F5FF;transition: all .5s ease;');
+                } else if(i == 1) {
+                    products.setAttribute('style','background: #E9E1FF;transition: all .5s ease;');
+                } else if(i == 2) {
+                    products.setAttribute('style','background: #FEFFD3;transition: all .5s ease;');
+                }
+            }
+        }
+        // Смена картинок 
+        for(var i = 0; i < productsItem.length; i++) {
+            let productBound = productsItem[i].getBoundingClientRect();
+            productsImage[i].setAttribute('style', 'clip-path: inset(0px 0px 0%);');
+            if((productBound.top) <= 0) {
+                if(i == 0) {
+                    productsImage[i].setAttribute('style', 'clip-path: inset(0px 0px '+ ((-productBound.top/window.innerHeight)*100) +'%);');                
+                    productsImage[i+1].setAttribute('style', 'clip-path: inset(0px 0px 0%);');
+                } else if(i == 1) {
+                    productsImage[i].setAttribute('style', 'clip-path: inset(0px 0px '+ ((-productBound.top/window.innerHeight)*100) +'%);');
+                    productsImage[i+1].setAttribute('style', 'clip-path: inset(0px 0px 0%);');
+                } else if(i == 2) {
+                    productsImage[i].setAttribute('style', 'clip-path: inset(0px 0px '+ ((-productBound.top/window.innerHeight)*100) +'%);');
+                }
+            }
+        }
+
+        // Горизонтальные карточки 
+        let countNumb = 0;
+        for(var i = 0; i < offerList.children.length; i++) {
+            countNumb = countNumb + offerList.children[i].scrollWidth
+        }    
+        if(offerWrap.getBoundingClientRect().top <= 0 && -(countNumb/4) < offerWrap.getBoundingClientRect().top) {
+            offerList.setAttribute('style', 'transform: translate('+ offerWrap.getBoundingClientRect().top/10 +'%,0);');
+        }
+
+        // Преимущества
+        let privilege = document.querySelector('.privilege');
+        let privilegeList1 = document.getElementById('privilege_list-1');
+        let privilegeList2 = document.getElementById('privilege_list-2');
+        
+        let privOffset = privilege.getBoundingClientRect().top - document.documentElement.clientHeight;
+
+        if(privOffset <= 0) {  
+            if((10 + (privOffset/100)) > 0) {
+                privilegeList1.setAttribute('style', 'transform: translate('+(10 + (privOffset/100))+'%, 0)')
+                privilegeList2.setAttribute('style', 'transform: translate('+(10 + (privOffset/100))+'%, 0)')
+            }
+            console.log(privOffset);
+        }
+        
+        // Смена текста
+        let framesSection = document.querySelector('.frames_section');
+        let frames = document.querySelector('.frames');
+        let frame = frames.querySelectorAll('.frame');
+
+        if(framesSection.getBoundingClientRect().top <= 0) {                
+            if(framesSection.getBoundingClientRect().top < -600) {
+                frames.querySelector('img').setAttribute('style', 'top: '+(100 - (-framesSection.getBoundingClientRect().top/topOffset)*1000)+'%;  transform: scale(1); ');
+            } else {
+                if((600 - (-framesSection.getBoundingClientRect().top)) < 10) {
+                    frames.querySelector('img').setAttribute('style', 'top: '+(100 - (-framesSection.getBoundingClientRect().top/topOffset)*1000)+'%; transform: scale(1.00'+ (600 - (-framesSection.getBoundingClientRect().top)) +');' );
+                } else if((600 - (-framesSection.getBoundingClientRect().top)) < 100 ) {
+                    frames.querySelector('img').setAttribute('style', 'top: '+(100 - (-framesSection.getBoundingClientRect().top/topOffset)*1000)+'%; transform: scale(1.0'+ (600 - (-framesSection.getBoundingClientRect().top)) +');' );
+                } else {
+                    frames.querySelector('img').setAttribute('style', 'top: '+(100 - (-framesSection.getBoundingClientRect().top/topOffset)*1000)+'%; transform: scale(1.'+ (600 - (-framesSection.getBoundingClientRect().top)) +');' );
+                }
+            }
+        } else if(framesSection.getBoundingClientRect().top > 0 && framesSection.getBoundingClientRect().top < 400) {
+            frames.querySelector('img').setAttribute('style', 'top: '+(100 - (-framesSection.getBoundingClientRect().top/topOffset)*1000)+'%; transform: scale(1.'+ (600 - (-framesSection.getBoundingClientRect().top)) +');' );
+        }
+
+        
+        for(var i = 0; i < frame.length; i++) {
+            if(framesSection.getBoundingClientRect().top < -1600 ) {
+                frame[i].classList.remove('show');
+                frame[4].classList.add('show');
+                frame[4].classList.add('show_top');
+            } else if(framesSection.getBoundingClientRect().top < -1400 ) {
+                frame[i].classList.remove('show');
+                frame[3].classList.add('show');
+                frame[3].classList.add('show_bottom');
+                frame[3].classList.add('show_top');
+            } else if(framesSection.getBoundingClientRect().top < -1200 ) {
+                frame[i].classList.remove('show');
+                frame[2].classList.add('show');
+                frame[2].classList.add('show_bottom');
+                frame[2].classList.add('show_top');
+            } else if(framesSection.getBoundingClientRect().top < -750 ) {
+                frame[i].classList.remove('show');
+                frame[1].classList.add('show');
+                frame[1].classList.add('show_bottom');
+            } else if(framesSection.getBoundingClientRect().top < -550 ) {
+                frame[i].classList.remove('show');
+                frame[1].classList.remove('show_bottom');
+                frame[1].classList.add('show');
+            } else {
+                frame[i].classList.remove('show');
+                frame[0].classList.add('show');
+            }
+        } 
+
+    });
+
 }
 
-document.addEventListener('scroll', e => {
-    //Смена фона у хедера
-    if((header.offsetHeight/2) < window.pageYOffset) {
-        header.setAttribute('style','background: #FFEDE8; transition: all .5s ease;');
-        products.setAttribute('style','background: #FFEDE8;transition: all .5s ease; ');
-    } else {
-        header.setAttribute('style','background: #ffffff;transition: all .5s ease;');
-        products.setAttribute('style','background: #ffffff;transition: all .5s ease;');
-    }
-    // Смена фона 
-    for(var i = 0; i < productsItem.length; i++) {
-        if((productsItem[i].getBoundingClientRect().top + document.documentElement.clientHeight/2) <= 0) {
-            if(i == 0) {
-                products.setAttribute('style','background: #D3F5FF;transition: all .5s ease;');
-            } else if(i == 1) {
-                products.setAttribute('style','background: #E9E1FF;transition: all .5s ease;');
-            } else if(i == 2) {
-                products.setAttribute('style','background: #FEFFD3;transition: all .5s ease;');
-            }
-        }
-    }
-    // Смена картинок 
-    for(var i = 0; i < productsItem.length; i++) {
-        let productBound = productsItem[i].getBoundingClientRect();
-        productsImage[i].setAttribute('style', 'clip-path: inset(0px 0px 0%);');
-        if((productBound.top) <= 0) {
-            if(i == 0) {
-                productsImage[i].setAttribute('style', 'clip-path: inset(0px 0px '+ ((-productBound.top/window.innerHeight)*100) +'%);');                
-                productsImage[i+1].setAttribute('style', 'clip-path: inset(0px 0px 0%);');
-            } else if(i == 1) {
-                productsImage[i].setAttribute('style', 'clip-path: inset(0px 0px '+ ((-productBound.top/window.innerHeight)*100) +'%);');
-                productsImage[i+1].setAttribute('style', 'clip-path: inset(0px 0px 0%);');
-            } else if(i == 2) {
-                productsImage[i].setAttribute('style', 'clip-path: inset(0px 0px '+ ((-productBound.top/window.innerHeight)*100) +'%);');
-            }
-        }
-    }
-
-    // Горизонтальные карточки 
-    let countNumb = 0;
-    for(var i = 0; i < offerList.children.length; i++) {
-        countNumb = countNumb + offerList.children[i].scrollWidth
-    }    
-    if(offerWrap.getBoundingClientRect().top <= 0 && -(countNumb/4) < offerWrap.getBoundingClientRect().top) {
-        offerList.setAttribute('style', 'transform: translate('+ offerWrap.getBoundingClientRect().top/10 +'%,0);');
-    }
-    
-    //offerWrap.setAttribute('style', 'height: '+Math.floor(countNumb/1.5)+'px;');
-
-
-    let frames = document.querySelector('.frames');
-    let frame1 = document.querySelector('.frame_1');
-
-    if(frames.getBoundingClientRect().top <= 0) {
-        frame1.classList.add('fixed');
-        frame1.querySelector('img').setAttribute('style', 'top: '+(100 - Math.floor((-frames.getBoundingClientRect().top/window.pageYOffset)*1000))+'%');
-        if(frames.getBoundingClientRect().top > -200) {
-            frame1.querySelector('img').setAttribute('style', 'top: '+(100 - Math.floor((-frames.getBoundingClientRect().top/window.pageYOffset)*1000))+'%; transform: scale(1.5);' );
-        } else {
-            frame1.querySelector('img').setAttribute('style', 'top: '+(100 - Math.floor((-frames.getBoundingClientRect().top/window.pageYOffset)*1000))+'%;  transform: scale(1);');
-        }
-    } else {
-        frame1.classList.remove('fixed');
-    }
-    console.log(frames.getBoundingClientRect().top);
-});
+document.addEventListener("DOMContentLoaded", readyPage);
