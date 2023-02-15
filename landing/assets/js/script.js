@@ -11,13 +11,13 @@ const offerList = document.querySelector('.offer_list');
 
 function readyPage() {
 
-   
     // При загрузке страница начинать скролл с самого верха
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
     }
 
     document.addEventListener('scroll', e => {
+
         let topOffset = window.pageYOffset;
         //Смена фона у хедера
         if((header.offsetHeight/2) < topOffset) {
@@ -27,6 +27,7 @@ function readyPage() {
             header.setAttribute('style','background: #ffffff;transition: all .5s ease;');
             products.setAttribute('style','background: #ffffff;transition: all .5s ease;');
         }
+
         // Смена фона 
         for(var i = 0; i < productsItem.length; i++) {
             if((productsItem[i].getBoundingClientRect().top + document.documentElement.clientHeight/2) <= 0) {
@@ -39,6 +40,7 @@ function readyPage() {
                 }
             }
         }
+
         // Смена картинок 
         for(var i = 0; i < productsItem.length; i++) {
             let productBound = productsItem[i].getBoundingClientRect();
@@ -74,11 +76,29 @@ function readyPage() {
 
         if(privOffset <= 0) {  
             if((10 + (privOffset/100)) > 0) {
-                privilegeList1.setAttribute('style', 'transform: translate('+(10 + (privOffset/100))+'%, 0)')
-                privilegeList2.setAttribute('style', 'transform: translate('+(10 + (privOffset/100))+'%, 0)')
+                if((10 + (privOffset/100)) > 0) {
+                    privilegeList1.setAttribute('style', 'transform: translate('+(100 + privOffset/10)+'%, 0)');
+                }
+                if((7 + (privOffset/100)) > 0) {
+                    privilegeList2.setAttribute('style', 'transform: translate('+(70 + privOffset/10)+'%, 0)');
+                }
             }
-            console.log(privOffset);
         }
+
+        // Партнеры
+        let partners = document.querySelector('.partners');
+        let partnersList1 = document.getElementById('partners_list_1');
+        let partnersList2 = document.getElementById('partners_list_2');
+        let partnersList3 = document.getElementById('partners_list_3');
+        
+        let partnerOffset = partners.getBoundingClientRect().top - document.documentElement.clientHeight;
+        if(partnerOffset <= 0) {  
+            partnersList1.setAttribute('style', 'transform: translate(' + (-200+partnerOffset/10)+'px, 0)');
+            partnersList2.setAttribute('style', 'transform: translate(' + (-400+(-partnerOffset/10))+'px, 0)');
+            partnersList3.setAttribute('style', 'transform: translate(' + (-100+(partnerOffset/10))+'px, 0)');
+            
+        }
+
         
         // Смена текста
         let framesSection = document.querySelector('.frames_section');

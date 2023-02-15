@@ -547,7 +547,7 @@
 @media screen and (max-width: 576px) {
     .about_card {
         .about_list {
-            flex-direction: column;
+            columns: 1;
             &_item {
                 width: 100%;
             }

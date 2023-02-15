@@ -332,8 +332,8 @@ label {
         background: var(--color-3);
         border-radius: var(--radius-1);
         padding: 12px;
+        outline-color: #8FCC00;
         border: 0;
-        outline: none;
         width: 100%;
         &::placeholder {
             color: var(--color-8);
@@ -341,6 +341,7 @@ label {
     }
     input {
         height: 44px;
+        outline-color: #8FCC00;
         &.error {
             background: var(--color-14);                    
         }
@@ -352,6 +353,7 @@ label {
     }
     textarea {
         height: 88px;
+        outline-color: #8FCC00;
         resize: none;
     }
 }
@@ -361,7 +363,7 @@ label {
     border: 1px solid var(--color-5);
     input {
         font-weight: 500;
-        outline: none;
+        outline-color: #8FCC00;
         border: 1px solid transparent;
         width: 100%;
     }
@@ -370,11 +372,12 @@ label {
     width: 100%;
     &_form {
         @include for-flex-center;
+        margin-bottom: 16px;
         .label {
             position: relative;  
             max-width: 375px;
             margin-right: 15px;
-            margin-bottom: 10px;
+            margin-bottom: 0;
             height: 42px;
             .input {
                 font-size: 17px;
@@ -416,7 +419,6 @@ label {
             width: 44px;
             border: 0;
             padding: 10px;
-            margin-bottom: 10px;
         }
     }
 }
@@ -439,6 +441,9 @@ label {
             width: 20px;
             border-radius: 4px;
             border: 1px solid var(--color-5);
+        } 
+        a {
+            text-decoration: underline;
         }
     }
     input {
@@ -869,6 +874,7 @@ label {
                     border: 1px solid #E6EAEE;
                     border-radius: 6px;
                     height: 36px;
+                    outline-color: #8FCC00;
                     padding: 0 5px;
                 }
                 .select {
@@ -931,6 +937,11 @@ label {
         width: 100%;
         margin: 40px 0;
         position: relative;
+        &_counter {
+            color: #858585;
+            font-weight: 600;
+            font-size: 17px;
+        }
         &_links {
             @include for-flex-just-center;
             margin: -4px;
@@ -1135,6 +1146,9 @@ label {
                     .body_nav_item__arrow {
                         background: var(--color-0);
                     }
+                    img {
+                        filter: brightness(10%);
+                    }
                 }
             }
         }
@@ -1151,6 +1165,9 @@ label {
     .table {
         width: auto;
         min-width: 100%;
+    }
+    .about {
+        margin: 15px 0;
     }
 }
 .about {
@@ -1192,14 +1209,30 @@ label {
     }
     &_card {
         margin-bottom: 35px;
+        width: 100%;
+        &_btn {
+            &__copy {
+                background: transparent;
+                border: 0;
+                outline: none;
+                width: auto;
+                height: auto;
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+        }
         .about_list {
-            @include for-flex-wrap;
+            /*@include for-flex-wrap;*/
+            columns: 2;
+            position: relative;
             border: 1px solid var(--color-5);
             border-radius: var(--radius-1);
             padding: 16px;
             max-width: 600px;
             &_item {
-                width: 50%;
+                width: 100%;
             }
         }
     }
@@ -1450,6 +1483,14 @@ label {
     }
 }
 // ANCHOR Регистрация на сайте
+@keyframes rotation {
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}
 .registration {
     padding: 12px 0;
     width: 100%;
@@ -1461,6 +1502,7 @@ label {
     &_desc {
         font-weight: 500;
         font-size: 15px;
+        color: #858585;
         margin-bottom: 20px;
     }
     &_tabs {
@@ -1565,7 +1607,6 @@ label {
                 border-radius: var(--radius-1);
                 padding: 12px;
                 border: 0;
-                outline: none;
                 width: 100%;
                 &::placeholder {
                     color: var(--color-8);
@@ -1594,6 +1635,15 @@ label {
         font-weight: 600;
         font-size: 17px;
         border-color: transparent;
+
+        &.wait {
+            img {
+                animation-name: rotation;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+        }
     }
 }
 // ANCHOR Инфоблок

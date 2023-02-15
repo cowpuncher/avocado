@@ -560,10 +560,9 @@
 /*ANCHOR MEDIA 576 */
 @media screen and (max-width: 576px) {
   .about_card .about_list {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
   }
   .about_card .about_list_item {
     width: 100%;
