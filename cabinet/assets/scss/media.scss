@@ -353,9 +353,29 @@
     .registration_tabs_link {
         font-size: 15px;
     }
+    .filter_small_form {
+        &_dates {
+            width: 55%;
+        }
+        &_button {
+            margin-right: 0;
+        }
+        &_clear {
+            margin-left: auto;
+        }
+        .label {
+            max-width: 34vw;
+        }
+    }
+    .filter_administration {
+        .filter_small_form .label {
+            max-width: 27vw;
+        }
+    }
     /*ANCHOR Подвал сайта*/
     .footer {
         @include for-flex-just-between-start;
+        margin-top: auto;
     }
 }
 /*ANCHOR MEDIA 767 */
@@ -376,6 +396,16 @@
                 &__btn {
                     width: 30px;
                     height: 30px;
+                }
+            }
+        }
+    }
+    .filter_administration {
+        .filter_small_form {
+            .label {
+                max-width: 44vw;
+                &:nth-child(3) {
+                    max-width: 82%;
                 }
             }
         }
@@ -439,6 +469,17 @@
                 font-size: 15px;
             }
         }
+        &_small {
+            &_form {
+                .label {
+                    max-width: 100%;
+                    min-width: 100px;
+                } 
+                &_dates {
+                    width: 92%;
+                }
+            }
+        }
     }
     .popup {
         &_filter {
@@ -446,6 +487,7 @@
                 .label {
                     
                     min-width: 140px;
+                    align-items: flex-start;
         
                     &:nth-child(1) {                
                         max-width: 100%;
@@ -508,7 +550,7 @@
     .burger_filter {
         height: 35px;
         width: 35px;
-        bottom: 28px;
+        // bottom: 28px;
     }
     .table_pagi {
         &_counter {
@@ -550,6 +592,24 @@
             columns: 1;
             &_item {
                 width: 100%;
+            }
+        }
+    }
+    .filter {
+        &_small {
+            &_form {
+                .label {
+                    margin-right: 5px;
+                    .input {
+                        font-size: 15px;
+                    }
+                } 
+                &_dates {
+                    width: 84%;
+                    span {
+                        margin-right: 5px;
+                    }
+                }
             }
         }
     }

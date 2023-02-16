@@ -365,6 +365,21 @@
   .registration_tabs_link {
     font-size: 15px;
   }
+  .filter_small_form_dates {
+    width: 55%;
+  }
+  .filter_small_form_button {
+    margin-right: 0;
+  }
+  .filter_small_form_clear {
+    margin-left: auto;
+  }
+  .filter_small_form .label {
+    max-width: 34vw;
+  }
+  .filter_administration .filter_small_form .label {
+    max-width: 27vw;
+  }
   /*ANCHOR Подвал сайта*/
   .footer {
     display: -webkit-box;
@@ -376,6 +391,7 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    margin-top: auto;
   }
 }
 /*ANCHOR MEDIA 767 */
@@ -398,6 +414,12 @@
   .header_top_nav .wrap_popupblock, .header_top_nav__btn {
     width: 30px;
     height: 30px;
+  }
+  .filter_administration .filter_small_form .label {
+    max-width: 44vw;
+  }
+  .filter_administration .filter_small_form .label:nth-child(3) {
+    max-width: 82%;
   }
   .body {
     padding: 3px 12px;
@@ -466,8 +488,18 @@
   .filter_form input::placeholder {
     font-size: 15px;
   }
+  .filter_small_form .label {
+    max-width: 100%;
+    min-width: 100px;
+  }
+  .filter_small_form_dates {
+    width: 92%;
+  }
   .popup_filter_body .label {
     min-width: 140px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
   .popup_filter_body .label:nth-child(1) {
     max-width: 100%;
@@ -529,7 +561,6 @@
   .burger_filter {
     height: 35px;
     width: 35px;
-    bottom: 28px;
   }
   .table_pagi_counter {
     display: none;
@@ -566,5 +597,17 @@
   }
   .about_card .about_list_item {
     width: 100%;
+  }
+  .filter_small_form .label {
+    margin-right: 5px;
+  }
+  .filter_small_form .label .input {
+    font-size: 15px;
+  }
+  .filter_small_form_dates {
+    width: 84%;
+  }
+  .filter_small_form_dates span {
+    margin-right: 5px;
   }
 }

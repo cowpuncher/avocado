@@ -236,6 +236,22 @@ h1 {
   margin: 0 6px;
 }
 
+/*ANCHOR -- Селекты */
+.select {
+  width: 150px;
+  position: relative;
+}
+.select-selected {
+  border: 1px solid #E6EAEE;
+  border-radius: 6px;
+}
+.select::after {
+  content: url(../img/icons/arrow-down.svg);
+  position: absolute;
+  right: 10px;
+  top: 4px;
+}
+
 /*ANCHOR -- Кнопок*/
 @-webkit-keyframes rotateButton {
   from {
@@ -269,6 +285,7 @@ h1 {
           justify-content: center;
   background: transparent;
   border: 0;
+  color: var(--color-1);
   outline: none;
   font-weight: 600;
   line-height: 20px;
@@ -317,6 +334,7 @@ label input:not([type=file]),
 label textarea {
   background: var(--color-3);
   border-radius: var(--radius-1);
+  font-size: 15px;
   padding: 12px;
   outline-color: #8FCC00;
   border: 0;
@@ -754,7 +772,7 @@ label textarea {
 }
 .filter_small_form .label {
   position: relative;
-  max-width: 375px;
+  max-width: 21%;
   min-width: 165px;
   margin-right: 15px;
   margin-bottom: 10px;
@@ -1595,6 +1613,40 @@ label textarea {
 .popupWindow_form_small label {
   margin: 0;
 }
+.popupWindow_add_person {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 40px 0 20px;
+}
+.popupWindow_add_person .icon {
+  height: 48px;
+  width: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  background: var(--color-0);
+  margin-bottom: 15px;
+}
+.popupWindow_add_person_desc {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+}
 .popupWindow span {
   background: transparent;
   height: auto;
@@ -2118,7 +2170,7 @@ label textarea {
   position: relative;
   background: var(--color-3);
   border-radius: var(--radius-1);
-  padding: 16px;
+  padding: 16px 45px 16px 16px;
   margin-bottom: 10px;
   cursor: pointer;
 }
